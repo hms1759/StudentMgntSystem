@@ -18,6 +18,7 @@ namespace StudentMgntSystem
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
