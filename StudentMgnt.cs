@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentMgntSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,17 +15,22 @@ namespace StudentMgntSystem
     {
         public StudentMgnt()
         {
+            LoadingPage loading = new LoadingPage();
+            loading.ShowDialog();
             InitializeComponent();
         }
 
+       
+           
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Login loginPage = new Login();
+            loginPage.ShowDialog();
         }
     }
 }
