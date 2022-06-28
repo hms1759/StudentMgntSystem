@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gold;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(796, 348);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label2);

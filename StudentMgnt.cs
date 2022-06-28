@@ -1,4 +1,5 @@
 ﻿using StudentMgntSystem.Models;
+using StudentMgntSystem.Models.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,8 +30,8 @@ namespace StudentMgntSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Login loginPage = new Login();
-            loginPage.ShowDialog();
+            Home home = new Home();
+            home.ShowDialog();
         }
     }
 }

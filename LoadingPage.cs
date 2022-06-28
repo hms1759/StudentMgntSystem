@@ -16,7 +16,7 @@ namespace StudentMgntSystem
         { 
             InitializeComponent();
         }
-        int startpos = 0;
+        int startpos = 99;
         private void progressTimer_Tick(object sender, EventArgs e)
         {
             startpos += 1;
