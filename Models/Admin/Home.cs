@@ -35,5 +35,14 @@ namespace StudentMgntSystem.Models.Admin
             panelContent.Controls.Add(subjects);
             subjects.Show();
         }
+
+        private void teacherBtn_Click(object sender, EventArgs e)
+        {
+            panelContent.Controls.Clear();
+            Teacher teacher = new Teacher();
+            teacher.TopLevel = false;
+            panelContent.Controls.Add(teacher);
+            teacher.Show();
+        }
     }
 }

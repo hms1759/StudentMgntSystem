@@ -81,7 +81,7 @@ namespace StudentMgntSystem.Models.Admin
                 SqlCommand cmd = new SqlCommand("Delete from Class where ClassName=@KEYWORD", con);
 
 
-                cmd.Parameters.AddWithValue("KEYWORD", ClassNameTxt.Text);
+                cmd.Parameters.AddWithValue("@KEYWORD", ClassNameTxt.Text);
                 cmd.ExecuteNonQuery();
                 BindGrid();
                 con.Close();

@@ -36,6 +36,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.subjectsRegisterBtn = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.teacherBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +93,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.teacherBtn);
             this.panel2.Controls.Add(this.subjectsRegisterBtn);
             this.panel2.Controls.Add(this.classRegisterBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -124,6 +126,19 @@
             this.panelContent.Size = new System.Drawing.Size(1493, 823);
             this.panelContent.TabIndex = 4;
             // 
+            // teacherBtn
+            // 
+            this.teacherBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.teacherBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherBtn.ForeColor = System.Drawing.Color.White;
+            this.teacherBtn.Location = new System.Drawing.Point(12, 275);
+            this.teacherBtn.Name = "teacherBtn";
+            this.teacherBtn.Size = new System.Drawing.Size(189, 88);
+            this.teacherBtn.TabIndex = 5;
+            this.teacherBtn.Text = "Teachers";
+            this.teacherBtn.UseVisualStyleBackColor = false;
+            this.teacherBtn.Click += new System.EventHandler(this.teacherBtn_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -133,12 +148,12 @@
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1725, 982);
             this.MinimumSize = new System.Drawing.Size(1725, 982);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -155,5 +170,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button subjectsRegisterBtn;
         private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Button teacherBtn;
     }
 }
