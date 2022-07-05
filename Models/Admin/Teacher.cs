@@ -71,6 +71,8 @@ namespace StudentMgntSystem.Models.Admin
                 }
 
             }
+
+            ClearInputs();
         }
         private void teacherRegisterBtn_Click(object sender, EventArgs e)
         {
@@ -107,7 +109,6 @@ namespace StudentMgntSystem.Models.Admin
                 }
             };
             con.Close();
-
         }
 
         private void Teacher_Load(object sender, EventArgs e)
@@ -121,10 +122,54 @@ namespace StudentMgntSystem.Models.Admin
             teacherNameTextBox.Text = string.Empty;
             teacherAddressTextBox.Text = String.Empty;
             teacherPhoneTextBox.Text = String.Empty;
-            teacherClassComboBox.SelectedValue = null;
+            teacherClassComboBox.SelectedItem = null;
             teacherEmailTextBox.Text = String.Empty;
             teacherPasswordTextBox.Text = string.Empty; 
+        }
 
+        private void teacherData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string className = "";
+                int classId = Convert.ToInt32(teacherData.SelectedRows[0].Cells[8].Value);
+                SqlConnection con = new SqlConnection(constring);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Select ClassName from Class where ClassId=@ClassId", con);
+                cmd.Parameters.AddWithValue("ClassId", classId);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        className = reader[0].ToString();
+                    }
+
+                    reader.Close();
+                    reader.Dispose();
+
+
+                    if (className != string.Empty)
+                    {
+                        teacherNameTextBox.Text = teacherData.SelectedRows[0].Cells[1].Value.ToString();
+                        teacherDOB.Text = teacherData.SelectedRows[0].Cells[2].Value.ToString();
+                        teacherGenderComboBox.Text = teacherData.SelectedRows[0].Cells[3].Value.ToString();
+                        teacherPhoneTextBox.Text = teacherData.SelectedRows[0].Cells[4].Value.ToString();
+                        teacherEmailTextBox.Text = teacherData.SelectedRows[0].Cells[5].Value.ToString();
+                        teacherAddressTextBox.Text = teacherData.SelectedRows[0].Cells[6].Value.ToString();
+                        teacherPasswordTextBox.Text = teacherData.SelectedRows[0].Cells[7].Value.ToString();
+                        teacherClassComboBox.Text = className;
+                        teacherClassComboBox.Enabled = false;
+                        teacherGenderComboBox.Enabled = false;
+                    }
+                }
+
+
+            }
+            catch (Exception error)
+            {
+                var err = error.Message;
+                MessageBox.Show($"No Data available\n Reason: {err}");
+            }
         }
     }
 }

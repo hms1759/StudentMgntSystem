@@ -306,7 +306,6 @@
             // 
             // teacherData
             // 
-            this.teacherData.AllowUserToOrderColumns = true;
             this.teacherData.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.teacherData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.teacherData.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -315,11 +314,11 @@
             this.teacherData.Name = "teacherData";
             this.teacherData.RowHeadersVisible = false;
             this.teacherData.RowHeadersWidth = 82;
-            this.teacherData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.teacherData.RowTemplate.Height = 33;
             this.teacherData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.teacherData.Size = new System.Drawing.Size(902, 752);
             this.teacherData.TabIndex = 3;
+            this.teacherData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teacherData_CellClick);
             // 
             // Teacher
             // 
