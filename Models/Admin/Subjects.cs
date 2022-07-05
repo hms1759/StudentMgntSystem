@@ -18,8 +18,7 @@ namespace StudentMgntSystem.Models.Admin
             InitializeComponent();
             BindGrid();
         }
-        string constring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SchoolMgnDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
+        string constring = DBconnect.DbConnectstring;
         private void departmentList()
         {
             using (SqlConnection conn = new SqlConnection(constring))
@@ -227,6 +226,11 @@ namespace StudentMgntSystem.Models.Admin
                 MessageBox.Show("Search Successful");
 
             }
+        }
+
+        private void subjectData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
