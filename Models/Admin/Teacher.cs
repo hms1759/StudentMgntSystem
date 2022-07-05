@@ -132,7 +132,7 @@ namespace StudentMgntSystem.Models.Admin
             try
             {
                 string className = "";
-                int classId = Convert.ToInt32(teacherData.SelectedRows[0].Cells[8].Value);
+                int classId = 0; classId =  Convert.ToInt32(teacherData.SelectedRows[0].Cells[8].Value);
                 SqlConnection con = new SqlConnection(constring);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("Select ClassName from Class where ClassId=@ClassId", con);
@@ -162,8 +162,6 @@ namespace StudentMgntSystem.Models.Admin
                         teacherGenderComboBox.Enabled = false;
                     }
                 }
-
-
             }
             catch (Exception error)
             {
