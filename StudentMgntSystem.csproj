@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection.cs" />
     <Compile Include="LoadingPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,9 +73,11 @@
     </Compile>
     <Compile Include="Models\Admin\Teacher.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\Admin\Teacher.Designer.cs">
       <DependentUpon>Teacher.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\Login.cs">
       <SubType>Form</SubType>
@@ -111,6 +114,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Admin\Teacher.resx">
       <DependentUpon>Teacher.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

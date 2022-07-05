@@ -18,9 +18,8 @@ namespace StudentMgntSystem.Models.Admin
             InitializeComponent();
             BindGrid();
         }
-
-        string constring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SchoolMgnDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
+        string constring = DBconnect.DbConnectstring;
+     
         private void BindGrid()
         {
             using (SqlConnection con = new SqlConnection(constring))
