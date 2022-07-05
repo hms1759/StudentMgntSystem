@@ -115,5 +115,16 @@ namespace StudentMgntSystem.Models.Admin
             departmentList();
             genderList();
         }
+
+        private void ClearInputs()
+        {
+            teacherNameTextBox.Text = string.Empty;
+            teacherAddressTextBox.Text = String.Empty;
+            teacherPhoneTextBox.Text = String.Empty;
+            teacherClassComboBox.SelectedValue = null;
+            teacherEmailTextBox.Text = String.Empty;
+            teacherPasswordTextBox.Text = string.Empty; 
+
+        }
     }
 }
