@@ -26,19 +26,16 @@ namespace StudentMgntSystem.Models.Admin
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT ClassName from Class", conn))
                 {
-                   
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         DataTable dt = new DataTable();
                         dt.Load(reader);
-                        classComboBox.ValueMember = "ClassName";
-                        classComboBox.SelectedItem = "";
+                        classComboBox.DisplayMember = "ClassName";
                         classComboBox.DataSource = dt;
                         classComboBox.SelectedItem = null;
                     }
                     cmd.ExecuteNonQuery();
                 }
-
                 conn.Close();
             }
         }
@@ -46,7 +43,7 @@ namespace StudentMgntSystem.Models.Admin
         {
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Subject", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Subject.SubjectId , Class.ClassId, Class.ClassName , Subject.SubjectName from Subject JOIN Class ON Subject.ClassId=Class.ClassId", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
@@ -59,61 +56,40 @@ namespace StudentMgntSystem.Models.Admin
                             subjectData.Columns[1].Visible = false;
                         }
                     }
-
+                    classComboBox.Enabled = true;
                 }
-
             }
         }
         private void subjectRegisterBtn_Click(object sender, EventArgs e)
         {
-            int id = 0;
             SqlConnection con = new SqlConnection(constring);
             con.Open();
-            using (SqlCommand cmd = new SqlCommand("SELECT ClassId FROM Class where ClassName=@ClassName", con))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO [Subject] (ClassId, SubjectName) VALUES ((SELECT ClassId FROM Class WHERE ClassName=@ClassName), @SubjectName)", con))
             {
-                string errorMessage = "Kindly enter all Details";
                 try
                 {
+                    string errorMessage = "Kindly enter all details";
                     if (isValid(errorMessage))
                     {
-                        cmd.Parameters.AddWithValue("@ClassName", classComboBox.SelectedValue);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                id = Convert.ToInt32(reader[0]);
-                            }
-                            reader.Close();
-                            reader.Dispose();
-                        }
-                        if (id != 0)
-                        {
-                            SqlCommand command = new SqlCommand("insert into Subject values (@ClassId,@SubjectName)", con);
-                            command.Parameters.AddWithValue("@SubjectName", SubjectNameTextBox.Text);
-                            command.Parameters.AddWithValue("@ClassId", id);
-                            command.ExecuteNonQuery();
-                            BindGrid();
-                            SubjectNameTextBox.Text = "";
-
-                        }
-                       
+                        cmd.Parameters.AddWithValue("@SubjectName", SubjectNameTextBox.Text);
+                        cmd.Parameters.AddWithValue("@ClassName", classComboBox.Text);
+                        cmd.ExecuteNonQuery();
+                        BindGrid();
+                        clearInputs();
                     }
                 }
                 catch (Exception error)
                 {
                     var err = error.Message;
-                    MessageBox.Show($"No Data available\n Reason: {err}");
+                    MessageBox.Show($"Reason: {err}");
                 }
-               
             }
             con.Close();
         }
-
         private void Subjects_Load(object sender, EventArgs e)
         {
             departmentList();
         }
-
         private void subjectDeleteBtn_Click(object sender, EventArgs e)
         {
             string errorMessage = "Unable to delete";
@@ -121,20 +97,15 @@ namespace StudentMgntSystem.Models.Admin
             {
                 SqlConnection con = new SqlConnection(constring);
                 con.Open();
-
-
                 SqlCommand cmd = new SqlCommand("Delete from Subject where SubjectName=@KEYWORD", con);
-
-
                 cmd.Parameters.AddWithValue("@KEYWORD", SubjectNameTextBox.Text);
                 cmd.ExecuteNonQuery();
                 BindGrid();
                 con.Close();
                 MessageBox.Show("Successfully Deleted");
-                SubjectNameTextBox.Text = "";
+                clearInputs();
             }
         }
-
         private bool isValid(string errorMessage)
         {
 
@@ -145,7 +116,6 @@ namespace StudentMgntSystem.Models.Admin
             }
             return true;
         }
-
         private void subjectEditBtn_Click(object sender, EventArgs e)
         {
             string errorMessage = "Kindly fill all details";
@@ -161,39 +131,17 @@ namespace StudentMgntSystem.Models.Admin
                 con.Close();
                 BindGrid();
                 MessageBox.Show("Subject Name is updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                SubjectNameTextBox.Text = "";
+                clearInputs();
             }
-            //else
-            //{
-            //    MessageBox.Show("Please select a Class to update informations", "Select?", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
 
         private void subjectData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                string className = "";
-                int classId = Convert.ToInt32(subjectData.SelectedRows[0].Cells[1].Value);
-                SqlConnection con = new SqlConnection(constring);
-                con.Open();
-                SqlCommand cmd = new SqlCommand("Select ClassName from Class where ClassId=@ClassId", con);
-                cmd.Parameters.AddWithValue("ClassId", classId);
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        className = reader[0].ToString();
-                    }
-                    if (className != string.Empty)
-                    {
-                        SubjectNameTextBox.Text = subjectData.SelectedRows[0].Cells[2].Value.ToString();
-                        classComboBox.Text = className;
-                        classComboBox.Enabled = false;
-                    }
-                }
-              
-
+                classComboBox.Text = subjectData.SelectedRows[0].Cells[2].Value.ToString();
+                SubjectNameTextBox.Text = subjectData.SelectedRows[0].Cells[3].Value.ToString();
+                classComboBox.Enabled = false;
             }
             catch (Exception error)
             {
@@ -201,36 +149,27 @@ namespace StudentMgntSystem.Models.Admin
                 MessageBox.Show($"No Data available\n Reason: {err}");
             }
         }
-
         private void subjectSearchBtn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(constring);
             con.Open();
-            SqlCommand cmd = new SqlCommand("Select * from Subject where SubjectName=@SubjectName", con);
-            cmd.Parameters.AddWithValue("SubjectName", SubjectNameTextBox.Text);
+            SqlCommand cmd = new SqlCommand("SELECT Class.ClassName,Subject.SubjectName from Subject JOIN Class ON Subject.ClassId=Class.ClassId WHERE ClassName=@ClassName OR SubjectName=@SubjectName", con);
+            cmd.Parameters.AddWithValue("@SubjectName", SubjectNameTextBox.Text);
+            cmd.Parameters.AddWithValue("@ClassName", classComboBox.Text);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             subjectData.DataSource = dt;
-            if (dt.Rows.Count == 0)
-            {
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("No result");
-
-            }
-            else if (dt.Rows.Count != 0)
-            {
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Search Successful");
-
-            }
+            clearInputs();
         }
-
         private void subjectData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private void clearInputs()
+        {
+            SubjectNameTextBox.Text = "";
+            classComboBox.SelectedItem = null;
         }
     }
 }

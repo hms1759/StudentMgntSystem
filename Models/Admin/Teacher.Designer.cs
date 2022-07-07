@@ -289,6 +289,7 @@
             this.subjectEditBtn.TabIndex = 1;
             this.subjectEditBtn.Text = "Edit";
             this.subjectEditBtn.UseVisualStyleBackColor = false;
+            this.subjectEditBtn.Click += new System.EventHandler(this.subjectEditBtn_Click);
             // 
             // teacherRegisterBtn
             // 

@@ -54,7 +54,7 @@ namespace StudentMgntSystem.Models.Admin
         {
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Teacher", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Teacher.TeacherId, Teacher.Name,Teacher.Email,Teacher.Phone,Teacher.DOB,Teacher.Gender,Teacher.Address,Class.ClassName,Teacher.Password,Teacher.ClassId from Teacher JOIN Class ON Teacher.ClassId=Class.ClassId", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
@@ -64,51 +64,64 @@ namespace StudentMgntSystem.Models.Admin
                             sda.Fill(ds);
                             teacherData.DataSource = ds.Tables[0];
                             teacherData.Columns[0].Visible = false;
-                            teacherData.Columns[8].Visible = false;
+                            teacherData.Columns[9].Visible = false;
                         }
                     }
-
+                    teacherClassComboBox.Enabled = true;
+                    teacherGenderComboBox.Enabled = true;
                 }
-
             }
-
-            ClearInputs();
         }
         private void teacherRegisterBtn_Click(object sender, EventArgs e)
         {
-            int id = 0;
             SqlConnection con = new SqlConnection(constring);
             con.Open();
-            using (SqlCommand command = new SqlCommand("SELECT ClassId FROM Class where ClassName=@ClassName", con))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO [Teacher] (Name,DOB,Gender,Phone,Email,Address,Password,ClassId) VALUES (@Name,@DOB,@Gender,@Phone,@Email,@Address,@Password,(SELECT ClassId FROM Class WHERE ClassName=@ClassName))", con))
             {
-                command.Parameters.AddWithValue("@ClassName", teacherClassComboBox.SelectedValue);
-
-                using (SqlDataReader reader = command.ExecuteReader())
+                try
                 {
-                    if (reader.Read())
+                    string errorMessage = "Kindly enter all details";
+                    if (isValid(errorMessage))
                     {
-                        id = Convert.ToInt32(reader[0]);
-                    }
-                    reader.Close();
-                    reader.Dispose();
-
-                    if (id != 0)
-                    {
-                        SqlCommand cmd = new SqlCommand("insert into Teacher values (@TeacherName, @TeacherDOB , @TeacherGender , @TeacherPhone ,  @TeacherEmail , @TeacherAddress , @TeacherPassword , @TeacherClassId )", con);
-                        cmd.Parameters.AddWithValue("@TeacherName", teacherNameTextBox.Text);
-                        cmd.Parameters.AddWithValue("@TeacherPhone", teacherPhoneTextBox.Text);
-                        cmd.Parameters.AddWithValue("@TeacherAddress", teacherAddressTextBox.Text);
-                        cmd.Parameters.AddWithValue("@TeacherClassId", id);
-                        cmd.Parameters.AddWithValue("@TeacherDOB", teacherDOB.Value.ToString());
-                        cmd.Parameters.AddWithValue("@TeacherGender", teacherGenderComboBox.Text);
-                        cmd.Parameters.AddWithValue("@TeacherEmail", teacherEmailTextBox.Text);
-                        cmd.Parameters.AddWithValue("@TeacherPassWord", teacherPasswordTextBox.Text);
+                        cmd.Parameters.AddWithValue("@Name", teacherNameTextBox.Text);
+                        cmd.Parameters.AddWithValue("@DOB", teacherDOB.Value.ToString());
+                        cmd.Parameters.AddWithValue("@Gender", teacherGenderComboBox.Text);
+                        cmd.Parameters.AddWithValue("@Phone", teacherPhoneTextBox.Text);
+                        cmd.Parameters.AddWithValue("@Email", teacherEmailTextBox.Text);
+                        cmd.Parameters.AddWithValue("@Address", teacherAddressTextBox.Text);
+                        cmd.Parameters.AddWithValue("@PassWord", teacherPasswordTextBox.Text);
+                        cmd.Parameters.AddWithValue("@ClassName", teacherClassComboBox.Text);
                         cmd.ExecuteNonQuery();
+                        ClearInputs();
                         BindGrid();
                     }
                 }
-            };
+                catch (Exception error)
+                {
+                    var err = error.Message;
+                    MessageBox.Show($"Reason: {err}");
+                }
+            }
             con.Close();
+        }
+
+        private bool isValid(string errorMessage)
+        {
+            if (
+                teacherNameTextBox.Text == string.Empty ||
+                teacherClassComboBox.SelectedItem == null ||
+                teacherPhoneTextBox.Text == string.Empty ||
+                teacherAddressTextBox.Text == string.Empty ||
+                teacherDOB.Value.ToString() == string.Empty ||
+                teacherGenderComboBox.SelectedItem == null ||
+                teacherEmailTextBox.Text == string.Empty ||
+                teacherPasswordTextBox.Text == string.Empty 
+                )
+            {
+                MessageBox.Show(errorMessage, "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
 
         private void Teacher_Load(object sender, EventArgs e)
@@ -123,6 +136,7 @@ namespace StudentMgntSystem.Models.Admin
             teacherAddressTextBox.Text = String.Empty;
             teacherPhoneTextBox.Text = String.Empty;
             teacherClassComboBox.SelectedItem = null;
+            teacherGenderComboBox.SelectedItem = null;
             teacherEmailTextBox.Text = String.Empty;
             teacherPasswordTextBox.Text = string.Empty; 
         }
@@ -131,42 +145,48 @@ namespace StudentMgntSystem.Models.Admin
         {
             try
             {
-                string className = "";
-                int classId = 0; classId =  Convert.ToInt32(teacherData.SelectedRows[0].Cells[8].Value);
-                SqlConnection con = new SqlConnection(constring);
-                con.Open();
-                SqlCommand cmd = new SqlCommand("Select ClassName from Class where ClassId=@ClassId", con);
-                cmd.Parameters.AddWithValue("ClassId", classId);
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                teacherNameTextBox.Text = teacherData.SelectedRows[0].Cells[1].Value.ToString();
+                teacherEmailTextBox.Text = teacherData.SelectedRows[0].Cells[2].Value.ToString();
+                teacherPhoneTextBox.Text = teacherData.SelectedRows[0].Cells[3].Value.ToString();
+                teacherDOB.Text = teacherData.SelectedRows[0].Cells[4].Value.ToString();
+                teacherGenderComboBox.Text = teacherData.SelectedRows[0].Cells[5].Value.ToString();
+                teacherAddressTextBox.Text = teacherData.SelectedRows[0].Cells[6].Value.ToString();
+                teacherClassComboBox.Text = teacherData.SelectedRows[0].Cells[7].Value.ToString();
+                teacherPasswordTextBox.Text = teacherData.SelectedRows[0].Cells[8].Value.ToString();
+                teacherClassComboBox.Enabled = false;
+                teacherGenderComboBox.Enabled = false;
+                if (teacherNameTextBox.Text == string.Empty)
                 {
-                    if (reader.Read())
-                    {
-                        className = reader[0].ToString();
-                    }
-
-                    reader.Close();
-                    reader.Dispose();
-
-
-                    if (className != string.Empty)
-                    {
-                        teacherNameTextBox.Text = teacherData.SelectedRows[0].Cells[1].Value.ToString();
-                        teacherDOB.Text = teacherData.SelectedRows[0].Cells[2].Value.ToString();
-                        teacherGenderComboBox.Text = teacherData.SelectedRows[0].Cells[3].Value.ToString();
-                        teacherPhoneTextBox.Text = teacherData.SelectedRows[0].Cells[4].Value.ToString();
-                        teacherEmailTextBox.Text = teacherData.SelectedRows[0].Cells[5].Value.ToString();
-                        teacherAddressTextBox.Text = teacherData.SelectedRows[0].Cells[6].Value.ToString();
-                        teacherPasswordTextBox.Text = teacherData.SelectedRows[0].Cells[7].Value.ToString();
-                        teacherClassComboBox.Text = className;
-                        teacherClassComboBox.Enabled = false;
-                        teacherGenderComboBox.Enabled = false;
-                    }
+                    MessageBox.Show("No Data available");
                 }
             }
             catch (Exception error)
             {
                 var err = error.Message;
                 MessageBox.Show($"No Data available\n Reason: {err}");
+            }
+        }
+
+        private void subjectEditBtn_Click(object sender, EventArgs e)
+        {
+            string errorMessage = "Select a the teacher to Edit";
+            int ID = Convert.ToInt32(teacherData.SelectedRows[0].Cells[0].Value);
+            if (isValid(errorMessage))
+            {
+                SqlConnection con = new SqlConnection(constring);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Update Teacher set Name=@Name,DOB=@DOB,Phone=@Phone,Email=@Email,Address=@Address,Password=@Password where TeacherID=@Id", con);
+                cmd.Parameters.AddWithValue("@Id", ID);
+                cmd.Parameters.AddWithValue("@Name", teacherNameTextBox.Text);
+                cmd.Parameters.AddWithValue("@DOB", teacherDOB.Value.ToString());
+                cmd.Parameters.AddWithValue("@Phone", teacherPhoneTextBox.Text);
+                cmd.Parameters.AddWithValue("@Email", teacherEmailTextBox.Text);
+                cmd.Parameters.AddWithValue("@Address", teacherAddressTextBox.Text);
+                cmd.Parameters.AddWithValue("@PassWord", teacherPasswordTextBox.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Subject Name is updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearInputs();
+                BindGrid();
             }
         }
     }

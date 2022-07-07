@@ -8,6 +8,6 @@ namespace StudentMgntSystem
 {
     public static  class DBconnect 
     {
-      public  static string DbConnectstring = @"Data Source=HOMEMADE\HMS;Initial Catalog=SchoolMgnDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+      public  static string DbConnectstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SchoolMgnDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
     }
 }
