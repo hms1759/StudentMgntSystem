@@ -16,8 +16,6 @@ namespace StudentMgntSystem.Models.Admin
         {
             InitializeComponent();
         }
-
-
         private void classRegisterBtn_Click(object sender, EventArgs e)
         {
             panelContent.Controls.Clear();
@@ -26,7 +24,6 @@ namespace StudentMgntSystem.Models.Admin
             panelContent.Controls.Add(cl);
             cl.Show();
         }
-
         private void subjectsRegisterBtn_Click(object sender, EventArgs e)
         {
             panelContent.Controls.Clear();
@@ -35,7 +32,6 @@ namespace StudentMgntSystem.Models.Admin
             panelContent.Controls.Add(subjects);
             subjects.Show();
         }
-
         private void teacherBtn_Click(object sender, EventArgs e)
         {
             panelContent.Controls.Clear();
@@ -43,6 +39,15 @@ namespace StudentMgntSystem.Models.Admin
             teacher.TopLevel = false;
             panelContent.Controls.Add(teacher);
             teacher.Show();
+        }
+
+        private void studentsBtn_Click(object sender, EventArgs e)
+        {
+            panelContent.Controls.Clear();
+            Students student = new Students();
+            student.TopLevel = false;
+            panelContent.Controls.Add(student);
+            student.Show();
         }
     }
 }

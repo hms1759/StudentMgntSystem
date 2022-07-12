@@ -34,9 +34,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.classRegisterBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.teacherBtn = new System.Windows.Forms.Button();
             this.subjectsRegisterBtn = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.teacherBtn = new System.Windows.Forms.Button();
+            this.studentsBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +94,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.studentsBtn);
             this.panel2.Controls.Add(this.teacherBtn);
             this.panel2.Controls.Add(this.subjectsRegisterBtn);
             this.panel2.Controls.Add(this.classRegisterBtn);
@@ -101,6 +103,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(206, 823);
             this.panel2.TabIndex = 3;
+            // 
+            // teacherBtn
+            // 
+            this.teacherBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.teacherBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherBtn.ForeColor = System.Drawing.Color.White;
+            this.teacherBtn.Location = new System.Drawing.Point(12, 275);
+            this.teacherBtn.Name = "teacherBtn";
+            this.teacherBtn.Size = new System.Drawing.Size(189, 88);
+            this.teacherBtn.TabIndex = 5;
+            this.teacherBtn.Text = "Teachers";
+            this.teacherBtn.UseVisualStyleBackColor = false;
+            this.teacherBtn.Click += new System.EventHandler(this.teacherBtn_Click);
             // 
             // subjectsRegisterBtn
             // 
@@ -126,18 +141,18 @@
             this.panelContent.Size = new System.Drawing.Size(1493, 823);
             this.panelContent.TabIndex = 4;
             // 
-            // teacherBtn
+            // studentsBtn
             // 
-            this.teacherBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.teacherBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherBtn.ForeColor = System.Drawing.Color.White;
-            this.teacherBtn.Location = new System.Drawing.Point(12, 275);
-            this.teacherBtn.Name = "teacherBtn";
-            this.teacherBtn.Size = new System.Drawing.Size(189, 88);
-            this.teacherBtn.TabIndex = 5;
-            this.teacherBtn.Text = "Teachers";
-            this.teacherBtn.UseVisualStyleBackColor = false;
-            this.teacherBtn.Click += new System.EventHandler(this.teacherBtn_Click);
+            this.studentsBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.studentsBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentsBtn.ForeColor = System.Drawing.Color.White;
+            this.studentsBtn.Location = new System.Drawing.Point(11, 378);
+            this.studentsBtn.Name = "studentsBtn";
+            this.studentsBtn.Size = new System.Drawing.Size(189, 88);
+            this.studentsBtn.TabIndex = 6;
+            this.studentsBtn.Text = "Students";
+            this.studentsBtn.UseVisualStyleBackColor = false;
+            this.studentsBtn.Click += new System.EventHandler(this.studentsBtn_Click);
             // 
             // Home
             // 
@@ -169,7 +184,8 @@
         private System.Windows.Forms.Button classRegisterBtn;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button subjectsRegisterBtn;
-        private System.Windows.Forms.Panel panelContent;
-        private System.Windows.Forms.Button teacherBtn;
+        public System.Windows.Forms.Panel panelContent;
+        public System.Windows.Forms.Button teacherBtn;
+        public System.Windows.Forms.Button studentsBtn;
     }
 }

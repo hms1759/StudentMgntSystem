@@ -58,9 +58,9 @@
             this.SubjectsPanel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.SubjectsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SubjectsPanel.Location = new System.Drawing.Point(0, 0);
-            this.SubjectsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubjectsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SubjectsPanel.Name = "SubjectsPanel";
-            this.SubjectsPanel.Size = new System.Drawing.Size(509, 614);
+            this.SubjectsPanel.Size = new System.Drawing.Size(679, 749);
             this.SubjectsPanel.TabIndex = 0;
             // 
             // classComboBox
@@ -69,19 +69,18 @@
             this.classComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.classComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.classComboBox.FormattingEnabled = true;
-            this.classComboBox.Location = new System.Drawing.Point(218, 155);
-            this.classComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.classComboBox.Location = new System.Drawing.Point(291, 194);
+            this.classComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.classComboBox.Name = "classComboBox";
-            this.classComboBox.Size = new System.Drawing.Size(196, 28);
+            this.classComboBox.Size = new System.Drawing.Size(260, 33);
             this.classComboBox.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 154);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(45, 192);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 27);
+            this.label3.Size = new System.Drawing.Size(208, 34);
             this.label3.TabIndex = 0;
             this.label3.Text = "Class Name";
             // 
@@ -90,31 +89,29 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Maroon;
-            this.label2.Location = new System.Drawing.Point(88, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(117, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(289, 35);
+            this.label2.Size = new System.Drawing.Size(370, 47);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Subject Registeration";
+            this.label2.Text = "Subject Registration";
             // 
             // SubjectNameTextBox
             // 
             this.SubjectNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SubjectNameTextBox.Location = new System.Drawing.Point(218, 213);
-            this.SubjectNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubjectNameTextBox.Location = new System.Drawing.Point(291, 266);
+            this.SubjectNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SubjectNameTextBox.Multiline = true;
             this.SubjectNameTextBox.Name = "SubjectNameTextBox";
-            this.SubjectNameTextBox.Size = new System.Drawing.Size(196, 37);
+            this.SubjectNameTextBox.Size = new System.Drawing.Size(261, 46);
             this.SubjectNameTextBox.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 226);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(40, 282);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 24);
+            this.label1.Size = new System.Drawing.Size(165, 30);
             this.label1.TabIndex = 4;
             this.label1.Text = "Subject Name";
             // 
@@ -124,10 +121,10 @@
             this.subjectSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.subjectSearchBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectSearchBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.subjectSearchBtn.Location = new System.Drawing.Point(260, 412);
-            this.subjectSearchBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.subjectSearchBtn.Location = new System.Drawing.Point(347, 515);
+            this.subjectSearchBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.subjectSearchBtn.Name = "subjectSearchBtn";
-            this.subjectSearchBtn.Size = new System.Drawing.Size(92, 46);
+            this.subjectSearchBtn.Size = new System.Drawing.Size(123, 58);
             this.subjectSearchBtn.TabIndex = 3;
             this.subjectSearchBtn.Text = "Search";
             this.subjectSearchBtn.UseVisualStyleBackColor = false;
@@ -139,10 +136,10 @@
             this.subjectDeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.subjectDeleteBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectDeleteBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.subjectDeleteBtn.Location = new System.Drawing.Point(394, 412);
-            this.subjectDeleteBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.subjectDeleteBtn.Location = new System.Drawing.Point(525, 515);
+            this.subjectDeleteBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.subjectDeleteBtn.Name = "subjectDeleteBtn";
-            this.subjectDeleteBtn.Size = new System.Drawing.Size(84, 46);
+            this.subjectDeleteBtn.Size = new System.Drawing.Size(112, 58);
             this.subjectDeleteBtn.TabIndex = 2;
             this.subjectDeleteBtn.Text = "Delete";
             this.subjectDeleteBtn.UseVisualStyleBackColor = false;
@@ -154,10 +151,10 @@
             this.subjectEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.subjectEditBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectEditBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.subjectEditBtn.Location = new System.Drawing.Point(143, 412);
-            this.subjectEditBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.subjectEditBtn.Location = new System.Drawing.Point(191, 515);
+            this.subjectEditBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.subjectEditBtn.Name = "subjectEditBtn";
-            this.subjectEditBtn.Size = new System.Drawing.Size(80, 46);
+            this.subjectEditBtn.Size = new System.Drawing.Size(107, 58);
             this.subjectEditBtn.TabIndex = 1;
             this.subjectEditBtn.Text = "Edit";
             this.subjectEditBtn.UseVisualStyleBackColor = false;
@@ -169,10 +166,10 @@
             this.subjectRegisterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.subjectRegisterBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectRegisterBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.subjectRegisterBtn.Location = new System.Drawing.Point(34, 412);
-            this.subjectRegisterBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.subjectRegisterBtn.Location = new System.Drawing.Point(45, 515);
+            this.subjectRegisterBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.subjectRegisterBtn.Name = "subjectRegisterBtn";
-            this.subjectRegisterBtn.Size = new System.Drawing.Size(87, 46);
+            this.subjectRegisterBtn.Size = new System.Drawing.Size(116, 58);
             this.subjectRegisterBtn.TabIndex = 0;
             this.subjectRegisterBtn.Text = "Register";
             this.subjectRegisterBtn.UseVisualStyleBackColor = false;
@@ -185,29 +182,29 @@
             this.subjectData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.subjectData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subjectData.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.subjectData.Location = new System.Drawing.Point(509, 0);
-            this.subjectData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.subjectData.Location = new System.Drawing.Point(679, 0);
+            this.subjectData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.subjectData.Name = "subjectData";
             this.subjectData.RowHeadersVisible = false;
             this.subjectData.RowHeadersWidth = 82;
             this.subjectData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.subjectData.RowTemplate.Height = 33;
             this.subjectData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.subjectData.Size = new System.Drawing.Size(594, 614);
+            this.subjectData.Size = new System.Drawing.Size(786, 749);
             this.subjectData.TabIndex = 1;
             this.subjectData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.subjectData_CellClick);
             this.subjectData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.subjectData_CellContentClick);
             // 
             // Subjects
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 614);
+            this.ClientSize = new System.Drawing.Size(1465, 749);
             this.Controls.Add(this.subjectData);
             this.Controls.Add(this.SubjectsPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(1125, 670);
-            this.MinimumSize = new System.Drawing.Size(1125, 670);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1491, 820);
+            this.MinimumSize = new System.Drawing.Size(1491, 820);
             this.Name = "Subjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Subject";

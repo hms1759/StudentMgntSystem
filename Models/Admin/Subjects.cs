@@ -153,14 +153,23 @@ namespace StudentMgntSystem.Models.Admin
         {
             SqlConnection con = new SqlConnection(constring);
             con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT Class.ClassName,Subject.SubjectName from Subject JOIN Class ON Subject.ClassId=Class.ClassId WHERE ClassName=@ClassName OR SubjectName=@SubjectName", con);
-            cmd.Parameters.AddWithValue("@SubjectName", SubjectNameTextBox.Text);
-            cmd.Parameters.AddWithValue("@ClassName", classComboBox.Text);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            subjectData.DataSource = dt;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Subject.SubjectId,Class.ClassId, Class.ClassName , Subject.SubjectName from Subject JOIN Class ON Subject.ClassId=Class.ClassId WHERE ClassName=@ClassName OR SubjectName=@SubjectName", con);
+                cmd.Parameters.AddWithValue("@SubjectName", SubjectNameTextBox.Text);
+                cmd.Parameters.AddWithValue("@ClassName", classComboBox.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                subjectData.DataSource = dt;
+            }
+            catch (Exception error)
+            {
+                var err = error.Message;
+                MessageBox.Show($"No Data available\n Reason: {err}");
+            }
             clearInputs();
+            con.Close();
         }
         private void subjectData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

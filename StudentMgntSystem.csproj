@@ -65,6 +65,12 @@
     <Compile Include="Models\Admin\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin\Students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Admin\Students.Designer.cs">
+      <DependentUpon>Students.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Admin\Subjects.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     <Compile Include="Models\Admin\Teacher.Designer.cs">
       <DependentUpon>Teacher.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Models\Admin\TeacherSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Admin\TeacherSubject.Designer.cs">
+      <DependentUpon>TeacherSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Login.cs">
       <SubType>Form</SubType>
@@ -109,12 +121,18 @@
     <EmbeddedResource Include="Models\Admin\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Models\Admin\Students.resx">
+      <DependentUpon>Students.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\Admin\Subjects.resx">
       <DependentUpon>Subjects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Admin\Teacher.resx">
       <DependentUpon>Teacher.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Admin\TeacherSubject.resx">
+      <DependentUpon>TeacherSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

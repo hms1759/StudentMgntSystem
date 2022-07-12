@@ -158,6 +158,7 @@ namespace StudentMgntSystem.Models.Admin
                 if (teacherNameTextBox.Text == string.Empty)
                 {
                     MessageBox.Show("No Data available");
+                    BindGrid();
                 }
             }
             catch (Exception error)
@@ -188,6 +189,42 @@ namespace StudentMgntSystem.Models.Admin
                 ClearInputs();
                 BindGrid();
             }
+        }
+
+        private void subjectSearchBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Teacher.TeacherId, Teacher.Name,Teacher.Email,Teacher.Phone,Teacher.DOB,Teacher.Gender,Teacher.Address,Class.ClassName,Teacher.Password,Teacher.ClassId from Teacher JOIN Class ON Teacher.ClassId=Class.ClassId Where Name=@Name", con);
+                cmd.Parameters.AddWithValue("@Name", teacherNameTextBox.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                teacherData.DataSource = dt;
+            }
+            catch (Exception error)
+            {
+                var err = error.Message;
+                MessageBox.Show($"No Data available\n Reason: {err}");
+            }
+            con.Close();
+        }
+
+        private void subjectDeleteBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"TRY AGAIN LATER");
+        }
+
+        private void teacherSubjectBtn_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            TeacherSubject teacherSubject = new TeacherSubject();
+            teacherSubject.TopLevel = false;
+            this.Controls.Add(teacherSubject);
+            teacherSubject.Show();
+               
         }
     }
 }

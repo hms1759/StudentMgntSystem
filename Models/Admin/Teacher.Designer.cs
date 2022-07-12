@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.SubjectsPanel = new System.Windows.Forms.Panel();
+            this.teacherSubjectBtn = new System.Windows.Forms.Button();
             this.teacherDOB = new System.Windows.Forms.DateTimePicker();
             this.teacherClassComboBox = new System.Windows.Forms.ComboBox();
             this.teacherGenderComboBox = new System.Windows.Forms.ComboBox();
@@ -58,6 +59,7 @@
             // SubjectsPanel
             // 
             this.SubjectsPanel.BackColor = System.Drawing.Color.FloralWhite;
+            this.SubjectsPanel.Controls.Add(this.teacherSubjectBtn);
             this.SubjectsPanel.Controls.Add(this.teacherDOB);
             this.SubjectsPanel.Controls.Add(this.teacherClassComboBox);
             this.SubjectsPanel.Controls.Add(this.teacherGenderComboBox);
@@ -86,9 +88,24 @@
             this.SubjectsPanel.Size = new System.Drawing.Size(565, 752);
             this.SubjectsPanel.TabIndex = 2;
             // 
+            // teacherSubjectBtn
+            // 
+            this.teacherSubjectBtn.BackColor = System.Drawing.Color.Transparent;
+            this.teacherSubjectBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.teacherSubjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.teacherSubjectBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherSubjectBtn.ForeColor = System.Drawing.Color.Black;
+            this.teacherSubjectBtn.Location = new System.Drawing.Point(0, 694);
+            this.teacherSubjectBtn.Name = "teacherSubjectBtn";
+            this.teacherSubjectBtn.Size = new System.Drawing.Size(565, 58);
+            this.teacherSubjectBtn.TabIndex = 21;
+            this.teacherSubjectBtn.Text = "Register a Subject";
+            this.teacherSubjectBtn.UseVisualStyleBackColor = false;
+            this.teacherSubjectBtn.Click += new System.EventHandler(this.teacherSubjectBtn_Click);
+            // 
             // teacherDOB
             // 
-            this.teacherDOB.Location = new System.Drawing.Point(196, 358);
+            this.teacherDOB.Location = new System.Drawing.Point(196, 295);
             this.teacherDOB.Name = "teacherDOB";
             this.teacherDOB.Size = new System.Drawing.Size(342, 31);
             this.teacherDOB.TabIndex = 20;
@@ -99,7 +116,7 @@
             this.teacherClassComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.teacherClassComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.teacherClassComboBox.FormattingEnabled = true;
-            this.teacherClassComboBox.Location = new System.Drawing.Point(196, 301);
+            this.teacherClassComboBox.Location = new System.Drawing.Point(196, 241);
             this.teacherClassComboBox.Name = "teacherClassComboBox";
             this.teacherClassComboBox.Size = new System.Drawing.Size(342, 33);
             this.teacherClassComboBox.TabIndex = 19;
@@ -110,7 +127,7 @@
             this.teacherGenderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.teacherGenderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.teacherGenderComboBox.FormattingEnabled = true;
-            this.teacherGenderComboBox.Location = new System.Drawing.Point(196, 428);
+            this.teacherGenderComboBox.Location = new System.Drawing.Point(196, 346);
             this.teacherGenderComboBox.Name = "teacherGenderComboBox";
             this.teacherGenderComboBox.Size = new System.Drawing.Size(342, 33);
             this.teacherGenderComboBox.TabIndex = 18;
@@ -119,7 +136,7 @@
             // 
             this.teacherClassLabel.AutoSize = true;
             this.teacherClassLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherClassLabel.Location = new System.Drawing.Point(3, 304);
+            this.teacherClassLabel.Location = new System.Drawing.Point(7, 244);
             this.teacherClassLabel.Name = "teacherClassLabel";
             this.teacherClassLabel.Size = new System.Drawing.Size(142, 30);
             this.teacherClassLabel.TabIndex = 17;
@@ -129,7 +146,7 @@
             // 
             this.teacherGenderLabel.AutoSize = true;
             this.teacherGenderLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherGenderLabel.Location = new System.Drawing.Point(3, 431);
+            this.teacherGenderLabel.Location = new System.Drawing.Point(7, 349);
             this.teacherGenderLabel.Name = "teacherGenderLabel";
             this.teacherGenderLabel.Size = new System.Drawing.Size(93, 30);
             this.teacherGenderLabel.TabIndex = 16;
@@ -139,7 +156,7 @@
             // 
             this.teacherDOBLabel.AutoSize = true;
             this.teacherDOBLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherDOBLabel.Location = new System.Drawing.Point(3, 359);
+            this.teacherDOBLabel.Location = new System.Drawing.Point(7, 296);
             this.teacherDOBLabel.Name = "teacherDOBLabel";
             this.teacherDOBLabel.Size = new System.Drawing.Size(155, 30);
             this.teacherDOBLabel.TabIndex = 15;
@@ -149,7 +166,7 @@
             // 
             this.teacherAddressLabel.AutoSize = true;
             this.teacherAddressLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherAddressLabel.Location = new System.Drawing.Point(3, 237);
+            this.teacherAddressLabel.Location = new System.Drawing.Point(7, 190);
             this.teacherAddressLabel.Name = "teacherAddressLabel";
             this.teacherAddressLabel.Size = new System.Drawing.Size(103, 30);
             this.teacherAddressLabel.TabIndex = 14;
@@ -159,7 +176,7 @@
             // 
             this.teacherPasswordLabel.AutoSize = true;
             this.teacherPasswordLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherPasswordLabel.Location = new System.Drawing.Point(3, 578);
+            this.teacherPasswordLabel.Location = new System.Drawing.Point(7, 474);
             this.teacherPasswordLabel.Name = "teacherPasswordLabel";
             this.teacherPasswordLabel.Size = new System.Drawing.Size(121, 30);
             this.teacherPasswordLabel.TabIndex = 13;
@@ -169,7 +186,7 @@
             // 
             this.teacherEmailLabel.AutoSize = true;
             this.teacherEmailLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherEmailLabel.Location = new System.Drawing.Point(3, 505);
+            this.teacherEmailLabel.Location = new System.Drawing.Point(7, 413);
             this.teacherEmailLabel.Name = "teacherEmailLabel";
             this.teacherEmailLabel.Size = new System.Drawing.Size(78, 30);
             this.teacherEmailLabel.TabIndex = 12;
@@ -179,7 +196,7 @@
             // 
             this.teacherPhoneLabel.AutoSize = true;
             this.teacherPhoneLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherPhoneLabel.Location = new System.Drawing.Point(3, 160);
+            this.teacherPhoneLabel.Location = new System.Drawing.Point(7, 128);
             this.teacherPhoneLabel.Name = "teacherPhoneLabel";
             this.teacherPhoneLabel.Size = new System.Drawing.Size(81, 30);
             this.teacherPhoneLabel.TabIndex = 11;
@@ -188,7 +205,7 @@
             // teacherNameTextBox
             // 
             this.teacherNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.teacherNameTextBox.Location = new System.Drawing.Point(196, 71);
+            this.teacherNameTextBox.Location = new System.Drawing.Point(196, 50);
             this.teacherNameTextBox.Multiline = true;
             this.teacherNameTextBox.Name = "teacherNameTextBox";
             this.teacherNameTextBox.Size = new System.Drawing.Size(342, 46);
@@ -197,7 +214,7 @@
             // teacherPasswordTextBox
             // 
             this.teacherPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.teacherPasswordTextBox.Location = new System.Drawing.Point(196, 562);
+            this.teacherPasswordTextBox.Location = new System.Drawing.Point(196, 458);
             this.teacherPasswordTextBox.Multiline = true;
             this.teacherPasswordTextBox.Name = "teacherPasswordTextBox";
             this.teacherPasswordTextBox.Size = new System.Drawing.Size(342, 46);
@@ -206,7 +223,7 @@
             // teacherEmailTextBox
             // 
             this.teacherEmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.teacherEmailTextBox.Location = new System.Drawing.Point(196, 489);
+            this.teacherEmailTextBox.Location = new System.Drawing.Point(196, 397);
             this.teacherEmailTextBox.Multiline = true;
             this.teacherEmailTextBox.Name = "teacherEmailTextBox";
             this.teacherEmailTextBox.Size = new System.Drawing.Size(342, 46);
@@ -215,7 +232,7 @@
             // teacherAddressTextBox
             // 
             this.teacherAddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.teacherAddressTextBox.Location = new System.Drawing.Point(196, 221);
+            this.teacherAddressTextBox.Location = new System.Drawing.Point(196, 174);
             this.teacherAddressTextBox.Multiline = true;
             this.teacherAddressTextBox.Name = "teacherAddressTextBox";
             this.teacherAddressTextBox.Size = new System.Drawing.Size(342, 46);
@@ -226,16 +243,16 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Maroon;
-            this.label2.Location = new System.Drawing.Point(121, 9);
+            this.label2.Location = new System.Drawing.Point(84, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(396, 47);
+            this.label2.Size = new System.Drawing.Size(377, 47);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Teacher Registeration";
+            this.label2.Text = "Teacher Registration";
             // 
             // teacherPhoneTextBox
             // 
             this.teacherPhoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.teacherPhoneTextBox.Location = new System.Drawing.Point(196, 144);
+            this.teacherPhoneTextBox.Location = new System.Drawing.Point(196, 112);
             this.teacherPhoneTextBox.Multiline = true;
             this.teacherPhoneTextBox.Name = "teacherPhoneTextBox";
             this.teacherPhoneTextBox.Size = new System.Drawing.Size(342, 46);
@@ -245,7 +262,7 @@
             // 
             this.teacherNameLabel.AutoSize = true;
             this.teacherNameLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherNameLabel.Location = new System.Drawing.Point(3, 87);
+            this.teacherNameLabel.Location = new System.Drawing.Point(7, 78);
             this.teacherNameLabel.Name = "teacherNameLabel";
             this.teacherNameLabel.Size = new System.Drawing.Size(77, 30);
             this.teacherNameLabel.TabIndex = 4;
@@ -257,12 +274,13 @@
             this.subjectSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.subjectSearchBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectSearchBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.subjectSearchBtn.Location = new System.Drawing.Point(285, 652);
+            this.subjectSearchBtn.Location = new System.Drawing.Point(280, 545);
             this.subjectSearchBtn.Name = "subjectSearchBtn";
             this.subjectSearchBtn.Size = new System.Drawing.Size(122, 58);
             this.subjectSearchBtn.TabIndex = 3;
             this.subjectSearchBtn.Text = "Search";
             this.subjectSearchBtn.UseVisualStyleBackColor = false;
+            this.subjectSearchBtn.Click += new System.EventHandler(this.subjectSearchBtn_Click);
             // 
             // subjectDeleteBtn
             // 
@@ -270,12 +288,13 @@
             this.subjectDeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.subjectDeleteBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectDeleteBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.subjectDeleteBtn.Location = new System.Drawing.Point(426, 652);
+            this.subjectDeleteBtn.Location = new System.Drawing.Point(426, 545);
             this.subjectDeleteBtn.Name = "subjectDeleteBtn";
             this.subjectDeleteBtn.Size = new System.Drawing.Size(112, 58);
             this.subjectDeleteBtn.TabIndex = 2;
             this.subjectDeleteBtn.Text = "Delete";
             this.subjectDeleteBtn.UseVisualStyleBackColor = false;
+            this.subjectDeleteBtn.Click += new System.EventHandler(this.subjectDeleteBtn_Click);
             // 
             // subjectEditBtn
             // 
@@ -283,7 +302,7 @@
             this.subjectEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.subjectEditBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectEditBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.subjectEditBtn.Location = new System.Drawing.Point(152, 652);
+            this.subjectEditBtn.Location = new System.Drawing.Point(150, 545);
             this.subjectEditBtn.Name = "subjectEditBtn";
             this.subjectEditBtn.Size = new System.Drawing.Size(107, 58);
             this.subjectEditBtn.TabIndex = 1;
@@ -297,7 +316,7 @@
             this.teacherRegisterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.teacherRegisterBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teacherRegisterBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.teacherRegisterBtn.Location = new System.Drawing.Point(12, 652);
+            this.teacherRegisterBtn.Location = new System.Drawing.Point(12, 545);
             this.teacherRegisterBtn.Name = "teacherRegisterBtn";
             this.teacherRegisterBtn.Size = new System.Drawing.Size(116, 58);
             this.teacherRegisterBtn.TabIndex = 0;
@@ -367,5 +386,6 @@
         private System.Windows.Forms.ComboBox teacherClassComboBox;
         private System.Windows.Forms.ComboBox teacherGenderComboBox;
         private System.Windows.Forms.DataGridView teacherData;
+        private System.Windows.Forms.Button teacherSubjectBtn;
     }
 }

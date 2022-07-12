@@ -64,9 +64,9 @@
             this.label2.ForeColor = System.Drawing.Color.Maroon;
             this.label2.Location = new System.Drawing.Point(64, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(288, 39);
+            this.label2.Size = new System.Drawing.Size(272, 39);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Class Registeration";
+            this.label2.Text = "Class Registration";
             // 
             // ClassNameTxt
             // 
