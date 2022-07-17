@@ -178,6 +178,7 @@
             // subjectData
             // 
             this.subjectData.AllowUserToOrderColumns = true;
+            this.subjectData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.subjectData.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.subjectData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.subjectData.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -208,6 +209,7 @@
             this.Name = "Subjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Subject";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Subjects_Load);
             this.SubjectsPanel.ResumeLayout(false);
             this.SubjectsPanel.PerformLayout();

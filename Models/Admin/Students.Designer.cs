@@ -51,12 +51,12 @@
             this.studentRegisterBtn = new System.Windows.Forms.Button();
             this.studentData = new System.Windows.Forms.DataGridView();
             this.SubjectsPanel = new System.Windows.Forms.Panel();
-            this.studentSeatNumberComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.studentNextOfKinPhone = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.studentNextOfKinAddress = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.studentNextOfKinPhone = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.studentSeatNumberComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).BeginInit();
             this.SubjectsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -238,6 +238,7 @@
             this.studentSearchBtn.TabIndex = 3;
             this.studentSearchBtn.Text = "Search";
             this.studentSearchBtn.UseVisualStyleBackColor = false;
+            this.studentSearchBtn.Click += new System.EventHandler(this.studentSearchBtn_Click);
             // 
             // studentDeleteBtn
             // 
@@ -281,6 +282,7 @@
             // 
             // studentData
             // 
+            this.studentData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.studentData.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.studentData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentData.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -331,45 +333,14 @@
             this.SubjectsPanel.Size = new System.Drawing.Size(623, 752);
             this.SubjectsPanel.TabIndex = 4;
             // 
-            // studentSeatNumberComboBox
+            // studentNextOfKinAddress
             // 
-            this.studentSeatNumberComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.studentSeatNumberComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.studentSeatNumberComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.studentSeatNumberComboBox.FormattingEnabled = true;
-            this.studentSeatNumberComboBox.Location = new System.Drawing.Point(275, 370);
-            this.studentSeatNumberComboBox.Name = "studentSeatNumberComboBox";
-            this.studentSeatNumberComboBox.Size = new System.Drawing.Size(342, 33);
-            this.studentSeatNumberComboBox.TabIndex = 21;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 374);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 30);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Seat Number";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 480);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(210, 30);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Next of kin Phone";
-            // 
-            // studentNextOfKinPhone
-            // 
-            this.studentNextOfKinPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.studentNextOfKinPhone.Location = new System.Drawing.Point(275, 481);
-            this.studentNextOfKinPhone.Multiline = true;
-            this.studentNextOfKinPhone.Name = "studentNextOfKinPhone";
-            this.studentNextOfKinPhone.Size = new System.Drawing.Size(342, 30);
-            this.studentNextOfKinPhone.TabIndex = 24;
+            this.studentNextOfKinAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.studentNextOfKinAddress.Location = new System.Drawing.Point(275, 536);
+            this.studentNextOfKinAddress.Multiline = true;
+            this.studentNextOfKinAddress.Name = "studentNextOfKinAddress";
+            this.studentNextOfKinAddress.Size = new System.Drawing.Size(342, 30);
+            this.studentNextOfKinAddress.TabIndex = 26;
             // 
             // label4
             // 
@@ -381,14 +352,45 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Next of kin Address";
             // 
-            // studentNextOfKinAddress
+            // studentNextOfKinPhone
             // 
-            this.studentNextOfKinAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.studentNextOfKinAddress.Location = new System.Drawing.Point(275, 536);
-            this.studentNextOfKinAddress.Multiline = true;
-            this.studentNextOfKinAddress.Name = "studentNextOfKinAddress";
-            this.studentNextOfKinAddress.Size = new System.Drawing.Size(342, 30);
-            this.studentNextOfKinAddress.TabIndex = 26;
+            this.studentNextOfKinPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.studentNextOfKinPhone.Location = new System.Drawing.Point(275, 481);
+            this.studentNextOfKinPhone.Multiline = true;
+            this.studentNextOfKinPhone.Name = "studentNextOfKinPhone";
+            this.studentNextOfKinPhone.Size = new System.Drawing.Size(342, 30);
+            this.studentNextOfKinPhone.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(11, 480);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(210, 30);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Next of kin Phone";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 374);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 30);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Seat Number";
+            // 
+            // studentSeatNumberComboBox
+            // 
+            this.studentSeatNumberComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.studentSeatNumberComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.studentSeatNumberComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.studentSeatNumberComboBox.FormattingEnabled = true;
+            this.studentSeatNumberComboBox.Location = new System.Drawing.Point(275, 370);
+            this.studentSeatNumberComboBox.Name = "studentSeatNumberComboBox";
+            this.studentSeatNumberComboBox.Size = new System.Drawing.Size(342, 33);
+            this.studentSeatNumberComboBox.TabIndex = 21;
             // 
             // Students
             // 

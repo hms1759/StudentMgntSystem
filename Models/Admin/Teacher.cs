@@ -32,7 +32,7 @@ namespace StudentMgntSystem.Models.Admin
             using (SqlConnection conn = new SqlConnection(constring))
             {
                 conn.Open();
-                using (SqlCommand cmr = new SqlCommand("SELECT ClassName from Class", conn))
+                using (SqlCommand cmr = new SqlCommand("SELECT ClassName from Class where IsDeleted IS NULL", conn))
                 {
 
                     using (SqlDataReader reader = cmr.ExecuteReader())
@@ -54,7 +54,7 @@ namespace StudentMgntSystem.Models.Admin
         {
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT Teacher.TeacherId, Teacher.Name,Teacher.Email,Teacher.Phone,Teacher.DOB,Teacher.Gender,Teacher.Address,Class.ClassName,Teacher.Password,Teacher.ClassId from Teacher JOIN Class ON Teacher.ClassId=Class.ClassId", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Teacher.TeacherId, Teacher.Name,Teacher.Email,Teacher.Phone,Teacher.DOB,Teacher.Gender,Teacher.Address,Class.ClassName,Teacher.Password,Teacher.ClassId from Teacher JOIN Class ON Teacher.ClassId=Class.ClassId where Teacher.IsDeleted IS NULL and Class.IsDeleted IS NULL", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
@@ -168,9 +168,9 @@ namespace StudentMgntSystem.Models.Admin
             }
         }
 
-        private void subjectEditBtn_Click(object sender, EventArgs e)
+        private void teacherEditBtn_Click(object sender, EventArgs e)
         {
-            string errorMessage = "Select a the teacher to Edit";
+            string errorMessage = "Select a teacher to Edit";
             int ID = Convert.ToInt32(teacherData.SelectedRows[0].Cells[0].Value);
             if (isValid(errorMessage))
             {
@@ -185,19 +185,19 @@ namespace StudentMgntSystem.Models.Admin
                 cmd.Parameters.AddWithValue("@Address", teacherAddressTextBox.Text);
                 cmd.Parameters.AddWithValue("@PassWord", teacherPasswordTextBox.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Subject Name is updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Teacher details is updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearInputs();
                 BindGrid();
             }
         }
 
-        private void subjectSearchBtn_Click(object sender, EventArgs e)
+        private void teacherSearchBtn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(constring);
             con.Open();
             try
             {
-                SqlCommand cmd = new SqlCommand("SELECT Teacher.TeacherId, Teacher.Name,Teacher.Email,Teacher.Phone,Teacher.DOB,Teacher.Gender,Teacher.Address,Class.ClassName,Teacher.Password,Teacher.ClassId from Teacher JOIN Class ON Teacher.ClassId=Class.ClassId Where Name=@Name", con);
+                SqlCommand cmd = new SqlCommand("SELECT Teacher.TeacherId, Teacher.Name,Teacher.Email,Teacher.Phone,Teacher.DOB,Teacher.Gender,Teacher.Address,Class.ClassName,Teacher.Password,Teacher.ClassId from Teacher JOIN Class ON Teacher.ClassId=Class.ClassId Where Name=@Name and Teacher.IsDeleted IS NULL and Class.IsDeleted IS NULL", con);
                 cmd.Parameters.AddWithValue("@Name", teacherNameTextBox.Text);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -212,9 +212,22 @@ namespace StudentMgntSystem.Models.Admin
             con.Close();
         }
 
-        private void subjectDeleteBtn_Click(object sender, EventArgs e)
+        private void teacherDeleteBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"TRY AGAIN LATER");
+            string errorMessage = "Select a teacher to Delete";
+            int ID = Convert.ToInt32(teacherData.SelectedRows[0].Cells[0].Value);
+            if (isValid(errorMessage))
+            {
+                SqlConnection con = new SqlConnection(constring);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Update Teacher set IsDeleted=@IsDeleted where TeacherID=@Id", con);
+                cmd.Parameters.AddWithValue("@Id", ID);
+                cmd.Parameters.AddWithValue("@IsDeleted", true);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Subject deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearInputs();
+                BindGrid();
+            }
         }
 
         private void teacherSubjectBtn_Click(object sender, EventArgs e)

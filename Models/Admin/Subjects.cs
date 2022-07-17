@@ -24,7 +24,7 @@ namespace StudentMgntSystem.Models.Admin
             using (SqlConnection conn = new SqlConnection(constring))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT ClassName from Class", conn))
+                using (SqlCommand cmd = new SqlCommand("SELECT ClassName from Class Where IsDeleted IS NULL", conn))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -43,7 +43,7 @@ namespace StudentMgntSystem.Models.Admin
         {
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT Subject.SubjectId , Class.ClassId, Class.ClassName , Subject.SubjectName from Subject JOIN Class ON Subject.ClassId=Class.ClassId", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Subject.SubjectId , Class.ClassId, Class.ClassName , Subject.SubjectName from Subject JOIN Class ON Subject.ClassId=Class.ClassId WHERE Subject.IsDeleted IS NULL and Class.IsDeleted IS NULL", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
@@ -92,17 +92,19 @@ namespace StudentMgntSystem.Models.Admin
         }
         private void subjectDeleteBtn_Click(object sender, EventArgs e)
         {
-            string errorMessage = "Unable to delete";
+            string errorMessage = "Kindly Select subject to delete";
+            int ID = Convert.ToInt32(subjectData.SelectedRows[0].Cells[0].Value);
             if (isValid(errorMessage))
             {
                 SqlConnection con = new SqlConnection(constring);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Subject where SubjectName=@KEYWORD", con);
-                cmd.Parameters.AddWithValue("@KEYWORD", SubjectNameTextBox.Text);
+                SqlCommand cmd = new SqlCommand("Update Subject set IsDeleted=@IsDeleted where SubjectId=@SubjectId", con);
+                cmd.Parameters.AddWithValue("@IsDeleted", true);
+                cmd.Parameters.AddWithValue("@SubjectId", ID);
                 cmd.ExecuteNonQuery();
-                BindGrid();
                 con.Close();
-                MessageBox.Show("Successfully Deleted");
+                BindGrid();
+                MessageBox.Show("Subject Deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearInputs();
             }
         }
@@ -155,7 +157,7 @@ namespace StudentMgntSystem.Models.Admin
             con.Open();
             try
             {
-                SqlCommand cmd = new SqlCommand("SELECT Subject.SubjectId,Class.ClassId, Class.ClassName , Subject.SubjectName from Subject JOIN Class ON Subject.ClassId=Class.ClassId WHERE ClassName=@ClassName OR SubjectName=@SubjectName", con);
+                SqlCommand cmd = new SqlCommand("SELECT Subject.SubjectId,Class.ClassId, Class.ClassName , Subject.SubjectName from Subject JOIN Class ON Subject.ClassId=Class.ClassId WHERE ClassName=@ClassName OR SubjectName=@SubjectName AND Class.IsDeleted IS NULL AND Subject.IsDeleted IS NULL", con);
                 cmd.Parameters.AddWithValue("@SubjectName", SubjectNameTextBox.Text);
                 cmd.Parameters.AddWithValue("@ClassName", classComboBox.Text);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

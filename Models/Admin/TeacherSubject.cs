@@ -24,7 +24,7 @@ namespace StudentMgntSystem.Models.Admin
             using (SqlConnection conn = new SqlConnection(constring))
             {
                 conn.Open();
-                using (SqlCommand cmr = new SqlCommand("SELECT Name from Teacher", conn))
+                using (SqlCommand cmr = new SqlCommand("SELECT Name from Teacher Where IsDeleted IS NULL", conn))
                 {
 
                     using (SqlDataReader reader = cmr.ExecuteReader())
@@ -49,7 +49,7 @@ namespace StudentMgntSystem.Models.Admin
             using (SqlConnection conn = new SqlConnection(constring))
             {
                 conn.Open();
-                using (SqlCommand cmr = new SqlCommand("SELECT ClassName from Class", conn))
+                using (SqlCommand cmr = new SqlCommand("SELECT ClassName from Class Where IsDeleted IS NULL", conn))
                 {
 
                     using (SqlDataReader reader = cmr.ExecuteReader())
@@ -74,7 +74,7 @@ namespace StudentMgntSystem.Models.Admin
             using (SqlConnection conn = new SqlConnection(constring))
             {
                 conn.Open();
-                using (SqlCommand cmr = new SqlCommand("SELECT SubjectName from Subject", conn))
+                using (SqlCommand cmr = new SqlCommand("SELECT SubjectName from Subject Where IsDeleted IS NULL", conn))
                 {
 
                     using (SqlDataReader reader = cmr.ExecuteReader())
@@ -104,7 +104,7 @@ namespace StudentMgntSystem.Models.Admin
         {
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT TeacherSubject.Id, Teacher.Name, Class.ClassName , Subject.SubjectName FROM TeacherSubject INNER JOIN Teacher on TeacherSubject.TeacherId=Teacher.TeacherId JOIN Class on TeacherSubject.ClassId=Class.ClassId JOIN Subject on TeacherSubject.SubjectId=Subject.SubjectId", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT TeacherSubject.Id, Teacher.Name, Class.ClassName , Subject.SubjectName FROM TeacherSubject INNER JOIN Teacher on TeacherSubject.TeacherId=Teacher.TeacherId JOIN Class on TeacherSubject.ClassId=Class.ClassId JOIN Subject on TeacherSubject.SubjectId=Subject.SubjectId Where TeacherSubject.IsDeleted IS NULL and Class.IsDeleted IS NULL and Teacher.IsDeleted IS NULL and Subject.IsDeleted IS NULL", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
@@ -114,8 +114,6 @@ namespace StudentMgntSystem.Models.Admin
                             sda.Fill(ds);
                             teacherSubjectData.DataSource = ds.Tables[0];
                             teacherSubjectData.Columns[0].Visible = false;
-                            teacherClassNameComboBox.Visible = false;
-                            classNameLabel.Visible = false;
                         }
                     }
                 }
@@ -127,7 +125,7 @@ namespace StudentMgntSystem.Models.Admin
             SqlConnection con = new SqlConnection(constring);
             con.Open();
 
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO [TeacherSubject] (ClassId,TeacherId,SubjectId) VALUES ((SELECT Teacher.ClassId FROM Teacher WHERE Name=@Name),(SELECT Teacher.TeacherId from Teacher Where Name=@Name),(SELECT Subject.SubjectId FROM Subject WHERE SubjectName=@SubjectName))", con))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO [TeacherSubject] (ClassId,TeacherId,SubjectId) VALUES ((SELECT Class.ClassId FROM Class WHERE ClassName=@ClassName),(SELECT Teacher.TeacherId from Teacher Where Name=@Name),(SELECT Subject.SubjectId FROM Subject WHERE SubjectName=@SubjectName))", con))
             {
                 try
                 {
@@ -137,6 +135,7 @@ namespace StudentMgntSystem.Models.Admin
                         cmd.CommandType = CommandType.Text;
                         cmd.Parameters.AddWithValue("@Name", teacherNameComboBox.Text);
                         cmd.Parameters.AddWithValue("@SubjectName", teacherSubjectNameComboBox.Text);
+                        cmd.Parameters.AddWithValue("@ClassName", teacherClassNameComboBox.Text);
                         cmd.ExecuteNonQuery();
                         clearInputs();
                         BindGrid();
@@ -170,8 +169,20 @@ namespace StudentMgntSystem.Models.Admin
 
         private void teacherSubjectDeleteBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Logic not written");
-            clearInputs();
+            string errorMessage = "Select a subject to Delete";
+            int ID = Convert.ToInt32(teacherSubjectData.SelectedRows[0].Cells[0].Value);
+            if (isValid(errorMessage))
+            {
+                SqlConnection con = new SqlConnection(constring);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Update TeacherSubject set IsDeleted=@IsDeleted where TeacherID=@Id", con);
+                cmd.Parameters.AddWithValue("@Id", ID);
+                cmd.Parameters.AddWithValue("@IsDeleted", true);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Teacher Subject is deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clearInputs();
+                BindGrid();
+            }
         }
 
         private void teacherSubjectData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -181,8 +192,6 @@ namespace StudentMgntSystem.Models.Admin
                 teacherNameComboBox.Text = teacherSubjectData.SelectedRows[0].Cells[1].Value.ToString();
                 teacherClassNameComboBox.Text = teacherSubjectData.SelectedRows[0].Cells[2].Value.ToString();
                 teacherSubjectNameComboBox.Text = teacherSubjectData.SelectedRows[0].Cells[3].Value.ToString();
-                classNameLabel.Visible = true;
-                teacherClassNameComboBox.Visible = true;
                 teacherClassNameComboBox.Enabled = false;
                 teacherNameComboBox.Enabled = false;
             }
@@ -205,7 +214,7 @@ namespace StudentMgntSystem.Models.Admin
             con.Open();
             try
             {
-                SqlCommand cmd = new SqlCommand("SELECT TeacherSubject.Id, Teacher.Name, Class.ClassName , Subject.SubjectName FROM TeacherSubject JOIN Teacher on TeacherSubject.TeacherId=Teacher.TeacherId JOIN Class on TeacherSubject.ClassId=Class.ClassId JOIN Subject on TeacherSubject.SubjectId=Subject.SubjectId WHERE Teacher.Name=@Name", con);
+                SqlCommand cmd = new SqlCommand("SELECT TeacherSubject.Id, Teacher.Name, Class.ClassName , Subject.SubjectName FROM TeacherSubject JOIN Teacher on TeacherSubject.TeacherId=Teacher.TeacherId JOIN Class on TeacherSubject.ClassId=Class.ClassId JOIN Subject on TeacherSubject.SubjectId=Subject.SubjectId WHERE Teacher.Name=@Name and Class.IsDeleted IS NULL and Subject.IsDeleted IS NULL and Teacher.IsDeleted IS NULL and TeacherSubject.IsDeleted IS NULL", con);
                 cmd.Parameters.AddWithValue("@Name", teacherNameComboBox.Text);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

@@ -24,7 +24,7 @@ namespace StudentMgntSystem.Models.Admin
         {
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Class", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT ClassId,ClassName FROM Class WHERE Class.IsDeleted IS NULL", con))
                 {
                     cmd.CommandType = CommandType.Text;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
@@ -58,7 +58,7 @@ namespace StudentMgntSystem.Models.Admin
                 {
                     SqlConnection con = new SqlConnection(constring);
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into Class values (@ClassName)", con);
+                    SqlCommand cmd = new SqlCommand("insert into [Class]  (ClassName) values (@ClassName)", con);
                     cmd.Parameters.AddWithValue("@ClassName", ClassNameTxt.Text);
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -74,17 +74,19 @@ namespace StudentMgntSystem.Models.Admin
         }
         private void classDeleteBtn_Click(object sender, EventArgs e)
         {
-            string errorMessage = "Unable to delete";
-            if (isValid(errorMessage))
+            string errorMessage = "Please select a Class to Delete informations";
+            int ID = Convert.ToInt32(classData.SelectedRows[0].Cells[0].Value);
+            if (isValid(errorMessage) && ID != 0)
             {
                 SqlConnection con = new SqlConnection(constring);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Delete from Class where ClassName=@KEYWORD", con);
-                cmd.Parameters.AddWithValue("@KEYWORD", ClassNameTxt.Text);
+                SqlCommand cmd = new SqlCommand("Update Class set IsDeleted=@IsDeleted where ClassId=@ClassId", con);
+                cmd.Parameters.AddWithValue("@IsDeleted", true);
+                cmd.Parameters.AddWithValue("@ClassId", ID);
                 cmd.ExecuteNonQuery();
-                BindGrid();
                 con.Close();
-                MessageBox.Show("Successfully Deleted");
+                BindGrid();
+                MessageBox.Show("Class is Deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void classEditBtn_Click(object sender, EventArgs e)
@@ -103,8 +105,8 @@ namespace StudentMgntSystem.Models.Admin
                 BindGrid();
                 MessageBox.Show("Class Name is updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
         }
+
         private void classData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -127,7 +129,7 @@ namespace StudentMgntSystem.Models.Admin
                 {
                     SqlConnection con = new SqlConnection(constring);
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("Select * from Class where ClassName=@ClassName", con);
+                    SqlCommand cmd = new SqlCommand("SELECT ClassId,ClassName FROM Class where Class.IsDeleted IS NULL and Class.ClassName=@ClassName", con);
                     cmd.Parameters.AddWithValue("ClassName", ClassNameTxt.Text);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();

@@ -18,7 +18,6 @@ namespace StudentMgntSystem.Models.Admin
             InitializeComponent();
         }
         string constring = DBconnect.DbConnectstring;
-
         private void DepartmentList()
         {
             using (SqlConnection conn = new SqlConnection(constring))
@@ -53,8 +52,8 @@ namespace StudentMgntSystem.Models.Admin
             DepartmentList();
             GenderList();
             SeatNumbers();
+            BindGrid();
         }
-
         private void SeatNumbers()
         {
             for (int i = 1; i < 21; i++)
@@ -82,7 +81,6 @@ namespace StudentMgntSystem.Models.Admin
                 }
             }
         }
-
         private void studentRegisterBtn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(constring);
@@ -110,6 +108,27 @@ namespace StudentMgntSystem.Models.Admin
                     var err = error.Message;
                     MessageBox.Show($"Reason: {err}");
                 }
+            }
+            con.Close();
+        }
+
+        private void studentSearchBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Student.StudentId, Student.Name,Student.DOB,Student.Gender,Student.Phone,Student.Email,Student.SeatNumber,Student.Address,Student.NextOfKin,Student.NextOfKinPhone,Student.NextOfKinAddress,Class.ClassName,Student.ClassId from Student JOIN Class ON Student.ClassId=Class.ClassId Where Name=@Name", con);
+                cmd.Parameters.AddWithValue("@Name", studentNameTextBox.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                studentData.DataSource = dt;
+            }
+            catch (Exception error)
+            {
+                var err = error.Message;
+                MessageBox.Show($"No Data available\n Reason: {err}");
             }
             con.Close();
         }

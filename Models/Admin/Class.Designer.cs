@@ -132,6 +132,7 @@
             // 
             // classData
             // 
+            this.classData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.classData.BackgroundColor = System.Drawing.Color.White;
             this.classData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.classData.Dock = System.Windows.Forms.DockStyle.Fill;

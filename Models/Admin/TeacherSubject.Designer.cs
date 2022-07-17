@@ -48,6 +48,7 @@
             // teacherSubjectData
             // 
             this.teacherSubjectData.AllowUserToOrderColumns = true;
+            this.teacherSubjectData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.teacherSubjectData.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.teacherSubjectData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.teacherSubjectData.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -47,9 +47,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.teacherPhoneTextBox = new System.Windows.Forms.TextBox();
             this.teacherNameLabel = new System.Windows.Forms.Label();
-            this.subjectSearchBtn = new System.Windows.Forms.Button();
+            this.teacherSearchBtn = new System.Windows.Forms.Button();
             this.subjectDeleteBtn = new System.Windows.Forms.Button();
-            this.subjectEditBtn = new System.Windows.Forms.Button();
+            this.teacherEditBtn = new System.Windows.Forms.Button();
             this.teacherRegisterBtn = new System.Windows.Forms.Button();
             this.teacherData = new System.Windows.Forms.DataGridView();
             this.SubjectsPanel.SuspendLayout();
@@ -77,9 +77,9 @@
             this.SubjectsPanel.Controls.Add(this.label2);
             this.SubjectsPanel.Controls.Add(this.teacherPhoneTextBox);
             this.SubjectsPanel.Controls.Add(this.teacherNameLabel);
-            this.SubjectsPanel.Controls.Add(this.subjectSearchBtn);
+            this.SubjectsPanel.Controls.Add(this.teacherSearchBtn);
             this.SubjectsPanel.Controls.Add(this.subjectDeleteBtn);
-            this.SubjectsPanel.Controls.Add(this.subjectEditBtn);
+            this.SubjectsPanel.Controls.Add(this.teacherEditBtn);
             this.SubjectsPanel.Controls.Add(this.teacherRegisterBtn);
             this.SubjectsPanel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.SubjectsPanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -268,19 +268,19 @@
             this.teacherNameLabel.TabIndex = 4;
             this.teacherNameLabel.Text = "Name";
             // 
-            // subjectSearchBtn
+            // teacherSearchBtn
             // 
-            this.subjectSearchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.subjectSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.subjectSearchBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectSearchBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.subjectSearchBtn.Location = new System.Drawing.Point(280, 545);
-            this.subjectSearchBtn.Name = "subjectSearchBtn";
-            this.subjectSearchBtn.Size = new System.Drawing.Size(122, 58);
-            this.subjectSearchBtn.TabIndex = 3;
-            this.subjectSearchBtn.Text = "Search";
-            this.subjectSearchBtn.UseVisualStyleBackColor = false;
-            this.subjectSearchBtn.Click += new System.EventHandler(this.subjectSearchBtn_Click);
+            this.teacherSearchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.teacherSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.teacherSearchBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherSearchBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.teacherSearchBtn.Location = new System.Drawing.Point(280, 545);
+            this.teacherSearchBtn.Name = "teacherSearchBtn";
+            this.teacherSearchBtn.Size = new System.Drawing.Size(122, 58);
+            this.teacherSearchBtn.TabIndex = 3;
+            this.teacherSearchBtn.Text = "Search";
+            this.teacherSearchBtn.UseVisualStyleBackColor = false;
+            this.teacherSearchBtn.Click += new System.EventHandler(this.teacherSearchBtn_Click);
             // 
             // subjectDeleteBtn
             // 
@@ -294,21 +294,21 @@
             this.subjectDeleteBtn.TabIndex = 2;
             this.subjectDeleteBtn.Text = "Delete";
             this.subjectDeleteBtn.UseVisualStyleBackColor = false;
-            this.subjectDeleteBtn.Click += new System.EventHandler(this.subjectDeleteBtn_Click);
+            this.subjectDeleteBtn.Click += new System.EventHandler(this.teacherDeleteBtn_Click);
             // 
-            // subjectEditBtn
+            // teacherEditBtn
             // 
-            this.subjectEditBtn.BackColor = System.Drawing.Color.Blue;
-            this.subjectEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.subjectEditBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectEditBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.subjectEditBtn.Location = new System.Drawing.Point(150, 545);
-            this.subjectEditBtn.Name = "subjectEditBtn";
-            this.subjectEditBtn.Size = new System.Drawing.Size(107, 58);
-            this.subjectEditBtn.TabIndex = 1;
-            this.subjectEditBtn.Text = "Edit";
-            this.subjectEditBtn.UseVisualStyleBackColor = false;
-            this.subjectEditBtn.Click += new System.EventHandler(this.subjectEditBtn_Click);
+            this.teacherEditBtn.BackColor = System.Drawing.Color.Blue;
+            this.teacherEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.teacherEditBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherEditBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.teacherEditBtn.Location = new System.Drawing.Point(150, 545);
+            this.teacherEditBtn.Name = "teacherEditBtn";
+            this.teacherEditBtn.Size = new System.Drawing.Size(107, 58);
+            this.teacherEditBtn.TabIndex = 1;
+            this.teacherEditBtn.Text = "Edit";
+            this.teacherEditBtn.UseVisualStyleBackColor = false;
+            this.teacherEditBtn.Click += new System.EventHandler(this.teacherEditBtn_Click);
             // 
             // teacherRegisterBtn
             // 
@@ -378,9 +378,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox teacherPhoneTextBox;
         private System.Windows.Forms.Label teacherNameLabel;
-        private System.Windows.Forms.Button subjectSearchBtn;
+        private System.Windows.Forms.Button teacherSearchBtn;
         private System.Windows.Forms.Button subjectDeleteBtn;
-        private System.Windows.Forms.Button subjectEditBtn;
+        private System.Windows.Forms.Button teacherEditBtn;
         private System.Windows.Forms.Button teacherRegisterBtn;
         private System.Windows.Forms.DateTimePicker teacherDOB;
         private System.Windows.Forms.ComboBox teacherClassComboBox;
