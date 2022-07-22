@@ -49,5 +49,14 @@ namespace StudentMgntSystem.Models.Admin
             panelContent.Controls.Add(student);
             student.Show();
         }
+
+        private void feesBtn_Click(object sender, EventArgs e)
+        {
+            panelContent.Controls.Clear();
+            FeesForm fees = new FeesForm();
+            fees.TopLevel = false;
+            panelContent.Controls.Add(fees);
+            fees.Show();
+        }
     }
 }

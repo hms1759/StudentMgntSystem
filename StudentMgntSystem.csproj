@@ -59,6 +59,12 @@
     <Compile Include="Models\Admin\Class.Designer.cs">
       <DependentUpon>Class.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin\Fees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Admin\Fees.Designer.cs">
+      <DependentUpon>Fees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Admin\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Admin\Class.resx">
       <DependentUpon>Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Admin\Fees.resx">
+      <DependentUpon>Fees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Admin\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

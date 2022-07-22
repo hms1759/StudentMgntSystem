@@ -34,10 +34,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.classRegisterBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.studentsBtn = new System.Windows.Forms.Button();
             this.teacherBtn = new System.Windows.Forms.Button();
             this.subjectsRegisterBtn = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.studentsBtn = new System.Windows.Forms.Button();
+            this.feesBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +95,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.feesBtn);
             this.panel2.Controls.Add(this.studentsBtn);
             this.panel2.Controls.Add(this.teacherBtn);
             this.panel2.Controls.Add(this.subjectsRegisterBtn);
@@ -103,6 +105,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(206, 823);
             this.panel2.TabIndex = 3;
+            // 
+            // studentsBtn
+            // 
+            this.studentsBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.studentsBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentsBtn.ForeColor = System.Drawing.Color.White;
+            this.studentsBtn.Location = new System.Drawing.Point(11, 378);
+            this.studentsBtn.Name = "studentsBtn";
+            this.studentsBtn.Size = new System.Drawing.Size(189, 88);
+            this.studentsBtn.TabIndex = 6;
+            this.studentsBtn.Text = "Students";
+            this.studentsBtn.UseVisualStyleBackColor = false;
+            this.studentsBtn.Click += new System.EventHandler(this.studentsBtn_Click);
             // 
             // teacherBtn
             // 
@@ -141,18 +156,18 @@
             this.panelContent.Size = new System.Drawing.Size(1493, 823);
             this.panelContent.TabIndex = 4;
             // 
-            // studentsBtn
+            // feesBtn
             // 
-            this.studentsBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.studentsBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentsBtn.ForeColor = System.Drawing.Color.White;
-            this.studentsBtn.Location = new System.Drawing.Point(11, 378);
-            this.studentsBtn.Name = "studentsBtn";
-            this.studentsBtn.Size = new System.Drawing.Size(189, 88);
-            this.studentsBtn.TabIndex = 6;
-            this.studentsBtn.Text = "Students";
-            this.studentsBtn.UseVisualStyleBackColor = false;
-            this.studentsBtn.Click += new System.EventHandler(this.studentsBtn_Click);
+            this.feesBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.feesBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feesBtn.ForeColor = System.Drawing.Color.White;
+            this.feesBtn.Location = new System.Drawing.Point(12, 483);
+            this.feesBtn.Name = "feesBtn";
+            this.feesBtn.Size = new System.Drawing.Size(189, 88);
+            this.feesBtn.TabIndex = 7;
+            this.feesBtn.Text = "Fees";
+            this.feesBtn.UseVisualStyleBackColor = false;
+            this.feesBtn.Click += new System.EventHandler(this.feesBtn_Click);
             // 
             // Home
             // 
@@ -187,5 +202,6 @@
         public System.Windows.Forms.Panel panelContent;
         public System.Windows.Forms.Button teacherBtn;
         public System.Windows.Forms.Button studentsBtn;
+        public System.Windows.Forms.Button feesBtn;
     }
 }

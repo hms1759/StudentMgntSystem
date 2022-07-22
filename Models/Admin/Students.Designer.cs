@@ -39,7 +39,7 @@
             this.teacherEmailLabel = new System.Windows.Forms.Label();
             this.teacherPhoneLabel = new System.Windows.Forms.Label();
             this.studentNameTextBox = new System.Windows.Forms.TextBox();
-            this.studentNextOfKin = new System.Windows.Forms.TextBox();
+            this.studentNextOfKinTextBox = new System.Windows.Forms.TextBox();
             this.studentEmailTextBox = new System.Windows.Forms.TextBox();
             this.studentAddressTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -169,14 +169,14 @@
             this.studentNameTextBox.Size = new System.Drawing.Size(342, 35);
             this.studentNameTextBox.TabIndex = 10;
             // 
-            // studentNextOfKin
+            // studentNextOfKinTextBox
             // 
-            this.studentNextOfKin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.studentNextOfKin.Location = new System.Drawing.Point(275, 429);
-            this.studentNextOfKin.Multiline = true;
-            this.studentNextOfKin.Name = "studentNextOfKin";
-            this.studentNextOfKin.Size = new System.Drawing.Size(342, 34);
-            this.studentNextOfKin.TabIndex = 9;
+            this.studentNextOfKinTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.studentNextOfKinTextBox.Location = new System.Drawing.Point(275, 429);
+            this.studentNextOfKinTextBox.Multiline = true;
+            this.studentNextOfKinTextBox.Name = "studentNextOfKinTextBox";
+            this.studentNextOfKinTextBox.Size = new System.Drawing.Size(342, 34);
+            this.studentNextOfKinTextBox.TabIndex = 9;
             // 
             // studentEmailTextBox
             // 
@@ -252,6 +252,7 @@
             this.studentDeleteBtn.TabIndex = 2;
             this.studentDeleteBtn.Text = "Delete";
             this.studentDeleteBtn.UseVisualStyleBackColor = false;
+            this.studentDeleteBtn.Click += new System.EventHandler(this.studentDeleteBtn_Click);
             // 
             // studentEditBtn
             // 
@@ -265,6 +266,7 @@
             this.studentEditBtn.TabIndex = 1;
             this.studentEditBtn.Text = "Edit";
             this.studentEditBtn.UseVisualStyleBackColor = false;
+            this.studentEditBtn.Click += new System.EventHandler(this.studentEditBtn_Click);
             // 
             // studentRegisterBtn
             // 
@@ -295,6 +297,7 @@
             this.studentData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentData.Size = new System.Drawing.Size(844, 752);
             this.studentData.TabIndex = 5;
+            this.studentData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentData_CellClick);
             // 
             // SubjectsPanel
             // 
@@ -316,7 +319,7 @@
             this.SubjectsPanel.Controls.Add(this.teacherEmailLabel);
             this.SubjectsPanel.Controls.Add(this.teacherPhoneLabel);
             this.SubjectsPanel.Controls.Add(this.studentNameTextBox);
-            this.SubjectsPanel.Controls.Add(this.studentNextOfKin);
+            this.SubjectsPanel.Controls.Add(this.studentNextOfKinTextBox);
             this.SubjectsPanel.Controls.Add(this.studentEmailTextBox);
             this.SubjectsPanel.Controls.Add(this.studentAddressTextBox);
             this.SubjectsPanel.Controls.Add(this.label2);
@@ -425,7 +428,7 @@
         private System.Windows.Forms.Label teacherEmailLabel;
         private System.Windows.Forms.Label teacherPhoneLabel;
         private System.Windows.Forms.TextBox studentNameTextBox;
-        private System.Windows.Forms.TextBox studentNextOfKin;
+        private System.Windows.Forms.TextBox studentNextOfKinTextBox;
         private System.Windows.Forms.TextBox studentEmailTextBox;
         private System.Windows.Forms.TextBox studentAddressTextBox;
         private System.Windows.Forms.Label label2;
