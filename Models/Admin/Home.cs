@@ -58,5 +58,14 @@ namespace StudentMgntSystem.Models.Admin
             panelContent.Controls.Add(fees);
             fees.Show();
         }
+
+        private void ExpenseBtn_Click(object sender, EventArgs e)
+        {
+            panelContent.Controls.Clear();
+            Expense expense = new Expense();
+            expense.TopLevel = false;
+            panelContent.Controls.Add(expense);
+            expense.Show();
+        }
     }
 }

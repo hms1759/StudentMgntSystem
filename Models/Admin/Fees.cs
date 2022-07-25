@@ -90,6 +90,82 @@ namespace StudentMgntSystem.Models.Admin
         private void FeesForm_Load(object sender, EventArgs e)
         {
             departmentList();
+            BindGrid();
+        }
+
+        private void FeesEditBtn_Click(object sender, EventArgs e)
+        {
+            //string errorMessage = "Kindly fill all details";
+            int ID = Convert.ToInt32(FeesData.SelectedRows[0].Cells[0].Value);
+            //if (isValid(errorMessage))
+            //{
+                SqlConnection con = new SqlConnection(constring);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Update Fees set FeesAmount=@FeesAmount where FessId=@FeesId", con);
+                cmd.Parameters.AddWithValue("@FeesAmount", feesTextBox.Text);
+                cmd.Parameters.AddWithValue("@FeesId", ID);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                BindGrid();
+                MessageBox.Show("Subject Name is updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //clearInputs();
+            //}
+        }
+
+        private void FeesData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                feesClassNameComboBox.Text = FeesData.SelectedRows[0].Cells[1].Value.ToString();
+                feesTextBox.Text = FeesData.SelectedRows[0].Cells[2].Value.ToString();
+                feesClassNameComboBox.Enabled = false;
+            }
+            catch (Exception error)
+            {
+                var err = error.Message;
+                MessageBox.Show($"No Data available\n Reason: {err}");
+            }
+        }
+
+        private void FeesSearchBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Fees.FessId, Class.ClassName, Fees.FeesAmount from Fees JOIN Class ON Fees.ClassId = Class.ClassId where Fees.IsDeleted IS NULL and Class.IsDeleted IS NULL and Class.ClassName=@ClassName", con);
+                cmd.Parameters.AddWithValue("@ClassName", feesClassNameComboBox.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                FeesData.DataSource = dt;
+            }
+            catch (Exception error)
+            {
+                var err = error.Message;
+                MessageBox.Show($"No Data available\n Reason: {err}");
+            }
+            //clearInputs();
+            con.Close();
+        }
+
+        private void FeesDeleteBtn_Click(object sender, EventArgs e)
+        {
+            //string errorMessage = "Kindly Select subject to delete";
+            int ID = Convert.ToInt32(FeesData.SelectedRows[0].Cells[0].Value);
+            //if (isValid(errorMessage))
+            {
+                SqlConnection con = new SqlConnection(constring);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Update Fees set IsDeleted=@IsDeleted where FessId=@FeesId", con);
+                cmd.Parameters.AddWithValue("@IsDeleted", true);
+                cmd.Parameters.AddWithValue("@FeesId", ID);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                BindGrid();
+                MessageBox.Show("Subject Deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //clearInputs();
+            }
         }
     }
 }

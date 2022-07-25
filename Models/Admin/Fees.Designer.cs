@@ -61,6 +61,7 @@
             this.FeesData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FeesData.Size = new System.Drawing.Size(788, 752);
             this.FeesData.TabIndex = 3;
+            this.FeesData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FeesData_CellClick);
             // 
             // FeesPanel
             // 
@@ -147,6 +148,7 @@
             this.FeesSearchBtn.TabIndex = 3;
             this.FeesSearchBtn.Text = "Search";
             this.FeesSearchBtn.UseVisualStyleBackColor = false;
+            this.FeesSearchBtn.Click += new System.EventHandler(this.FeesSearchBtn_Click);
             // 
             // FeesDeleteBtn
             // 
@@ -161,6 +163,7 @@
             this.FeesDeleteBtn.TabIndex = 2;
             this.FeesDeleteBtn.Text = "Delete";
             this.FeesDeleteBtn.UseVisualStyleBackColor = false;
+            this.FeesDeleteBtn.Click += new System.EventHandler(this.FeesDeleteBtn_Click);
             // 
             // FeesEditBtn
             // 
@@ -175,6 +178,7 @@
             this.FeesEditBtn.TabIndex = 1;
             this.FeesEditBtn.Text = "Edit";
             this.FeesEditBtn.UseVisualStyleBackColor = false;
+            this.FeesEditBtn.Click += new System.EventHandler(this.FeesEditBtn_Click);
             // 
             // FeesRegisterBtn
             // 
