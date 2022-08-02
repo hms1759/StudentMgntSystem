@@ -39,7 +39,9 @@
             this.AttendanceDeleteBtn = new System.Windows.Forms.Button();
             this.AttendanceEditBtn = new System.Windows.Forms.Button();
             this.AttendanceRegisterBtn = new System.Windows.Forms.Button();
+            this.attendanceData = new System.Windows.Forms.DataGridView();
             this.attendancePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceData)).BeginInit();
             this.SuspendLayout();
             // 
             // attendancePanel
@@ -161,6 +163,7 @@
             this.AttendanceEditBtn.TabIndex = 24;
             this.AttendanceEditBtn.Text = "Edit";
             this.AttendanceEditBtn.UseVisualStyleBackColor = false;
+            this.AttendanceEditBtn.Click += new System.EventHandler(this.AttendanceEditBtn_Click);
             // 
             // AttendanceRegisterBtn
             // 
@@ -175,12 +178,31 @@
             this.AttendanceRegisterBtn.TabIndex = 23;
             this.AttendanceRegisterBtn.Text = "Register";
             this.AttendanceRegisterBtn.UseVisualStyleBackColor = false;
+            this.AttendanceRegisterBtn.Click += new System.EventHandler(this.AttendanceRegisterBtn_Click);
+            // 
+            // attendanceData
+            // 
+            this.attendanceData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.attendanceData.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.attendanceData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.attendanceData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.attendanceData.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.attendanceData.Location = new System.Drawing.Point(586, 0);
+            this.attendanceData.Name = "attendanceData";
+            this.attendanceData.RowHeadersVisible = false;
+            this.attendanceData.RowHeadersWidth = 82;
+            this.attendanceData.RowTemplate.Height = 33;
+            this.attendanceData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.attendanceData.Size = new System.Drawing.Size(881, 752);
+            this.attendanceData.TabIndex = 6;
+            this.attendanceData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.attendanceData_CellClick);
             // 
             // TeacherAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1467, 752);
+            this.Controls.Add(this.attendanceData);
             this.Controls.Add(this.attendancePanel);
             this.MaximumSize = new System.Drawing.Size(1493, 823);
             this.MinimumSize = new System.Drawing.Size(1493, 823);
@@ -191,6 +213,7 @@
             this.Load += new System.EventHandler(this.TeacherAttendance_Load);
             this.attendancePanel.ResumeLayout(false);
             this.attendancePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +231,6 @@
         private System.Windows.Forms.Button AttendanceDeleteBtn;
         private System.Windows.Forms.Button AttendanceEditBtn;
         private System.Windows.Forms.Button AttendanceRegisterBtn;
+        private System.Windows.Forms.DataGridView attendanceData;
     }
 }
