@@ -67,5 +67,14 @@ namespace StudentMgntSystem.Models.Admin
             panelContent.Controls.Add(expense);
             expense.Show();
         }
+
+        private void examBtn_Click(object sender, EventArgs e)
+        {
+            panelContent.Controls.Clear();
+            Exam exam = new Exam();
+            exam.TopLevel = false;
+            panelContent.Controls.Add(exam);
+            exam.Show();
+        }
     }
 }

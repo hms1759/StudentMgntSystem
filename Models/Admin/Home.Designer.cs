@@ -34,12 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.classRegisterBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ExpenseBtn = new System.Windows.Forms.Button();
             this.feesBtn = new System.Windows.Forms.Button();
             this.studentsBtn = new System.Windows.Forms.Button();
             this.teacherBtn = new System.Windows.Forms.Button();
             this.subjectsRegisterBtn = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.ExpenseBtn = new System.Windows.Forms.Button();
+            this.examBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             this.classRegisterBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.classRegisterBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classRegisterBtn.ForeColor = System.Drawing.Color.White;
-            this.classRegisterBtn.Location = new System.Drawing.Point(12, 49);
+            this.classRegisterBtn.Location = new System.Drawing.Point(12, 7);
             this.classRegisterBtn.Name = "classRegisterBtn";
             this.classRegisterBtn.Size = new System.Drawing.Size(189, 88);
             this.classRegisterBtn.TabIndex = 3;
@@ -96,6 +97,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.examBtn);
             this.panel2.Controls.Add(this.ExpenseBtn);
             this.panel2.Controls.Add(this.feesBtn);
             this.panel2.Controls.Add(this.studentsBtn);
@@ -107,6 +109,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(206, 823);
             this.panel2.TabIndex = 3;
+            // 
+            // ExpenseBtn
+            // 
+            this.ExpenseBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ExpenseBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExpenseBtn.ForeColor = System.Drawing.Color.White;
+            this.ExpenseBtn.Location = new System.Drawing.Point(11, 586);
+            this.ExpenseBtn.Name = "ExpenseBtn";
+            this.ExpenseBtn.Size = new System.Drawing.Size(189, 88);
+            this.ExpenseBtn.TabIndex = 8;
+            this.ExpenseBtn.Text = "Expense";
+            this.ExpenseBtn.UseVisualStyleBackColor = false;
+            this.ExpenseBtn.Click += new System.EventHandler(this.ExpenseBtn_Click);
             // 
             // feesBtn
             // 
@@ -126,7 +141,7 @@
             this.studentsBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.studentsBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentsBtn.ForeColor = System.Drawing.Color.White;
-            this.studentsBtn.Location = new System.Drawing.Point(11, 378);
+            this.studentsBtn.Location = new System.Drawing.Point(14, 289);
             this.studentsBtn.Name = "studentsBtn";
             this.studentsBtn.Size = new System.Drawing.Size(189, 88);
             this.studentsBtn.TabIndex = 6;
@@ -139,7 +154,7 @@
             this.teacherBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.teacherBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teacherBtn.ForeColor = System.Drawing.Color.White;
-            this.teacherBtn.Location = new System.Drawing.Point(12, 275);
+            this.teacherBtn.Location = new System.Drawing.Point(11, 195);
             this.teacherBtn.Name = "teacherBtn";
             this.teacherBtn.Size = new System.Drawing.Size(189, 88);
             this.teacherBtn.TabIndex = 5;
@@ -152,7 +167,7 @@
             this.subjectsRegisterBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.subjectsRegisterBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectsRegisterBtn.ForeColor = System.Drawing.Color.White;
-            this.subjectsRegisterBtn.Location = new System.Drawing.Point(12, 164);
+            this.subjectsRegisterBtn.Location = new System.Drawing.Point(11, 101);
             this.subjectsRegisterBtn.Name = "subjectsRegisterBtn";
             this.subjectsRegisterBtn.Size = new System.Drawing.Size(189, 88);
             this.subjectsRegisterBtn.TabIndex = 4;
@@ -171,18 +186,18 @@
             this.panelContent.Size = new System.Drawing.Size(1493, 823);
             this.panelContent.TabIndex = 4;
             // 
-            // ExpenseBtn
+            // examBtn
             // 
-            this.ExpenseBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ExpenseBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExpenseBtn.ForeColor = System.Drawing.Color.White;
-            this.ExpenseBtn.Location = new System.Drawing.Point(11, 586);
-            this.ExpenseBtn.Name = "ExpenseBtn";
-            this.ExpenseBtn.Size = new System.Drawing.Size(189, 88);
-            this.ExpenseBtn.TabIndex = 8;
-            this.ExpenseBtn.Text = "Expense";
-            this.ExpenseBtn.UseVisualStyleBackColor = false;
-            this.ExpenseBtn.Click += new System.EventHandler(this.ExpenseBtn_Click);
+            this.examBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.examBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.examBtn.ForeColor = System.Drawing.Color.White;
+            this.examBtn.Location = new System.Drawing.Point(11, 389);
+            this.examBtn.Name = "examBtn";
+            this.examBtn.Size = new System.Drawing.Size(189, 88);
+            this.examBtn.TabIndex = 9;
+            this.examBtn.Text = "Exam";
+            this.examBtn.UseVisualStyleBackColor = false;
+            this.examBtn.Click += new System.EventHandler(this.examBtn_Click);
             // 
             // Home
             // 
@@ -219,5 +234,6 @@
         public System.Windows.Forms.Button studentsBtn;
         public System.Windows.Forms.Button feesBtn;
         public System.Windows.Forms.Button ExpenseBtn;
+        public System.Windows.Forms.Button examBtn;
     }
 }

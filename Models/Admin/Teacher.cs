@@ -239,5 +239,14 @@ namespace StudentMgntSystem.Models.Admin
             teacherSubject.Show();
                
         }
+
+        private void AttendanceBtn_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            TeacherAttendance teacherAttendace = new TeacherAttendance();
+            teacherAttendace.TopLevel = false;
+            this.Controls.Add(teacherAttendace);
+            teacherAttendace.Show();
+        }
     }
 }

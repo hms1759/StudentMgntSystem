@@ -52,6 +52,7 @@
             this.teacherEditBtn = new System.Windows.Forms.Button();
             this.teacherRegisterBtn = new System.Windows.Forms.Button();
             this.teacherData = new System.Windows.Forms.DataGridView();
+            this.AttendanceBtn = new System.Windows.Forms.Button();
             this.SubjectsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teacherData)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             // SubjectsPanel
             // 
             this.SubjectsPanel.BackColor = System.Drawing.Color.FloralWhite;
+            this.SubjectsPanel.Controls.Add(this.AttendanceBtn);
             this.SubjectsPanel.Controls.Add(this.teacherSubjectBtn);
             this.SubjectsPanel.Controls.Add(this.teacherDOB);
             this.SubjectsPanel.Controls.Add(this.teacherClassComboBox);
@@ -91,13 +93,12 @@
             // teacherSubjectBtn
             // 
             this.teacherSubjectBtn.BackColor = System.Drawing.Color.Transparent;
-            this.teacherSubjectBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.teacherSubjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.teacherSubjectBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teacherSubjectBtn.ForeColor = System.Drawing.Color.Black;
-            this.teacherSubjectBtn.Location = new System.Drawing.Point(0, 694);
+            this.teacherSubjectBtn.Location = new System.Drawing.Point(12, 691);
             this.teacherSubjectBtn.Name = "teacherSubjectBtn";
-            this.teacherSubjectBtn.Size = new System.Drawing.Size(565, 58);
+            this.teacherSubjectBtn.Size = new System.Drawing.Size(273, 58);
             this.teacherSubjectBtn.TabIndex = 21;
             this.teacherSubjectBtn.Text = "Register a Subject";
             this.teacherSubjectBtn.UseVisualStyleBackColor = false;
@@ -340,6 +341,20 @@
             this.teacherData.TabIndex = 3;
             this.teacherData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teacherData_CellClick);
             // 
+            // AttendanceBtn
+            // 
+            this.AttendanceBtn.BackColor = System.Drawing.Color.Transparent;
+            this.AttendanceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AttendanceBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttendanceBtn.ForeColor = System.Drawing.Color.Black;
+            this.AttendanceBtn.Location = new System.Drawing.Point(291, 691);
+            this.AttendanceBtn.Name = "AttendanceBtn";
+            this.AttendanceBtn.Size = new System.Drawing.Size(262, 58);
+            this.AttendanceBtn.TabIndex = 22;
+            this.AttendanceBtn.Text = "Teacher Attendance";
+            this.AttendanceBtn.UseVisualStyleBackColor = false;
+            this.AttendanceBtn.Click += new System.EventHandler(this.AttendanceBtn_Click);
+            // 
             // Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -387,5 +402,6 @@
         private System.Windows.Forms.ComboBox teacherGenderComboBox;
         private System.Windows.Forms.DataGridView teacherData;
         private System.Windows.Forms.Button teacherSubjectBtn;
+        private System.Windows.Forms.Button AttendanceBtn;
     }
 }

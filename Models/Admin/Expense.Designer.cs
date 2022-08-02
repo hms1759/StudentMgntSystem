@@ -30,6 +30,8 @@
         {
             this.feesData = new System.Windows.Forms.DataGridView();
             this.ClassFeePanel = new System.Windows.Forms.Panel();
+            this.chargesTextBox = new System.Windows.Forms.TextBox();
+            this.chargesLabel = new System.Windows.Forms.Label();
             this.classNameComboBox = new System.Windows.Forms.ComboBox();
             this.classNameLabel = new System.Windows.Forms.Label();
             this.SubjectNameComboBox = new System.Windows.Forms.ComboBox();
@@ -39,8 +41,8 @@
             this.feeDeleteBtn = new System.Windows.Forms.Button();
             this.FeeEditBtn = new System.Windows.Forms.Button();
             this.FeeRegisterBtn = new System.Windows.Forms.Button();
-            this.chargesLabel = new System.Windows.Forms.Label();
-            this.chargesTextBox = new System.Windows.Forms.TextBox();
+            this.classLevelTextBox = new System.Windows.Forms.TextBox();
+            this.classLevel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.feesData)).BeginInit();
             this.ClassFeePanel.SuspendLayout();
             this.SuspendLayout();
@@ -63,10 +65,13 @@
             this.feesData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.feesData.Size = new System.Drawing.Size(786, 749);
             this.feesData.TabIndex = 5;
+            this.feesData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.feesData_CellClick);
             // 
             // ClassFeePanel
             // 
             this.ClassFeePanel.BackColor = System.Drawing.Color.FloralWhite;
+            this.ClassFeePanel.Controls.Add(this.classLevel);
+            this.ClassFeePanel.Controls.Add(this.classLevelTextBox);
             this.ClassFeePanel.Controls.Add(this.chargesTextBox);
             this.ClassFeePanel.Controls.Add(this.chargesLabel);
             this.ClassFeePanel.Controls.Add(this.classNameComboBox);
@@ -85,6 +90,22 @@
             this.ClassFeePanel.Name = "ClassFeePanel";
             this.ClassFeePanel.Size = new System.Drawing.Size(679, 749);
             this.ClassFeePanel.TabIndex = 4;
+            // 
+            // chargesTextBox
+            // 
+            this.chargesTextBox.Location = new System.Drawing.Point(291, 448);
+            this.chargesTextBox.Name = "chargesTextBox";
+            this.chargesTextBox.Size = new System.Drawing.Size(260, 31);
+            this.chargesTextBox.TabIndex = 13;
+            // 
+            // chargesLabel
+            // 
+            this.chargesLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chargesLabel.Location = new System.Drawing.Point(40, 448);
+            this.chargesLabel.Name = "chargesLabel";
+            this.chargesLabel.Size = new System.Drawing.Size(130, 34);
+            this.chargesLabel.TabIndex = 11;
+            this.chargesLabel.Text = "Charges";
             // 
             // classNameComboBox
             // 
@@ -145,13 +166,14 @@
             this.feeSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.feeSearchBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feeSearchBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.feeSearchBtn.Location = new System.Drawing.Point(347, 515);
+            this.feeSearchBtn.Location = new System.Drawing.Point(340, 586);
             this.feeSearchBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.feeSearchBtn.Name = "feeSearchBtn";
             this.feeSearchBtn.Size = new System.Drawing.Size(123, 58);
             this.feeSearchBtn.TabIndex = 3;
             this.feeSearchBtn.Text = "Search";
             this.feeSearchBtn.UseVisualStyleBackColor = false;
+            this.feeSearchBtn.Click += new System.EventHandler(this.feeSearchBtn_Click);
             // 
             // feeDeleteBtn
             // 
@@ -159,13 +181,14 @@
             this.feeDeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.feeDeleteBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feeDeleteBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.feeDeleteBtn.Location = new System.Drawing.Point(525, 515);
+            this.feeDeleteBtn.Location = new System.Drawing.Point(520, 586);
             this.feeDeleteBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.feeDeleteBtn.Name = "feeDeleteBtn";
             this.feeDeleteBtn.Size = new System.Drawing.Size(112, 58);
             this.feeDeleteBtn.TabIndex = 2;
             this.feeDeleteBtn.Text = "Delete";
             this.feeDeleteBtn.UseVisualStyleBackColor = false;
+            this.feeDeleteBtn.Click += new System.EventHandler(this.feeDeleteBtn_Click);
             // 
             // FeeEditBtn
             // 
@@ -173,13 +196,14 @@
             this.FeeEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.FeeEditBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FeeEditBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.FeeEditBtn.Location = new System.Drawing.Point(191, 515);
+            this.FeeEditBtn.Location = new System.Drawing.Point(198, 586);
             this.FeeEditBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FeeEditBtn.Name = "FeeEditBtn";
             this.FeeEditBtn.Size = new System.Drawing.Size(107, 58);
             this.FeeEditBtn.TabIndex = 1;
             this.FeeEditBtn.Text = "Edit";
             this.FeeEditBtn.UseVisualStyleBackColor = false;
+            this.FeeEditBtn.Click += new System.EventHandler(this.FeeEditBtn_Click);
             // 
             // FeeRegisterBtn
             // 
@@ -187,7 +211,7 @@
             this.FeeRegisterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.FeeRegisterBtn.Font = new System.Drawing.Font("Sitka Display", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FeeRegisterBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.FeeRegisterBtn.Location = new System.Drawing.Point(45, 515);
+            this.FeeRegisterBtn.Location = new System.Drawing.Point(45, 586);
             this.FeeRegisterBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FeeRegisterBtn.Name = "FeeRegisterBtn";
             this.FeeRegisterBtn.Size = new System.Drawing.Size(116, 58);
@@ -196,21 +220,21 @@
             this.FeeRegisterBtn.UseVisualStyleBackColor = false;
             this.FeeRegisterBtn.Click += new System.EventHandler(this.FeeRegisterBtn_Click);
             // 
-            // chargesLabel
+            // classLevelTextBox
             // 
-            this.chargesLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chargesLabel.Location = new System.Drawing.Point(40, 370);
-            this.chargesLabel.Name = "chargesLabel";
-            this.chargesLabel.Size = new System.Drawing.Size(130, 34);
-            this.chargesLabel.TabIndex = 11;
-            this.chargesLabel.Text = "Charges";
+            this.classLevelTextBox.Location = new System.Drawing.Point(291, 363);
+            this.classLevelTextBox.Name = "classLevelTextBox";
+            this.classLevelTextBox.Size = new System.Drawing.Size(260, 31);
+            this.classLevelTextBox.TabIndex = 14;
             // 
-            // chargesTextBox
+            // classLevel
             // 
-            this.chargesTextBox.Location = new System.Drawing.Point(291, 370);
-            this.chargesTextBox.Name = "chargesTextBox";
-            this.chargesTextBox.Size = new System.Drawing.Size(260, 31);
-            this.chargesTextBox.TabIndex = 13;
+            this.classLevel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classLevel.Location = new System.Drawing.Point(40, 363);
+            this.classLevel.Name = "classLevel";
+            this.classLevel.Size = new System.Drawing.Size(208, 34);
+            this.classLevel.TabIndex = 15;
+            this.classLevel.Text = "Class Level";
             // 
             // Expense
             // 
@@ -247,5 +271,7 @@
         private System.Windows.Forms.Button FeeRegisterBtn;
         private System.Windows.Forms.Label chargesLabel;
         private System.Windows.Forms.TextBox chargesTextBox;
+        private System.Windows.Forms.Label classLevel;
+        private System.Windows.Forms.TextBox classLevelTextBox;
     }
 }
