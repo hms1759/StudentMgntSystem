@@ -135,6 +135,7 @@
             this.AttendanceSearchBtn.TabIndex = 26;
             this.AttendanceSearchBtn.Text = "Search";
             this.AttendanceSearchBtn.UseVisualStyleBackColor = false;
+            this.AttendanceSearchBtn.Click += new System.EventHandler(this.AttendanceSearchBtn_Click);
             // 
             // AttendanceDeleteBtn
             // 
@@ -149,6 +150,7 @@
             this.AttendanceDeleteBtn.TabIndex = 25;
             this.AttendanceDeleteBtn.Text = "Delete";
             this.AttendanceDeleteBtn.UseVisualStyleBackColor = false;
+            this.AttendanceDeleteBtn.Click += new System.EventHandler(this.AttendanceDeleteBtn_Click);
             // 
             // AttendanceEditBtn
             // 

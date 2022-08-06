@@ -164,5 +164,52 @@ namespace StudentMgntSystem.Models.Admin
                 MessageBox.Show($"No Data available\n Reason: {err}");
             }
         }
+
+        private void AttendanceSearchBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT TeacherAttendance.Id, Teacher.Name, TeacherAttendance.Status, TeacherAttendance.Date FROM TeacherAttendance INNER JOIN Teacher on TeacherAttendance.TeacherId = Teacher.TeacherId  Where Teacher.Name=@Name and TeacherAttendance.IsDeleted IS NULL and Teacher.IsDeleted IS NULL", con);
+                cmd.Parameters.AddWithValue("@Name", teacherNameComboBox.Text);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                attendanceData.DataSource = dt;
+            }
+            catch (Exception error)
+            {
+                var err = error.Message;
+                MessageBox.Show($"No Data available\n Reason: {err}");
+            }
+            //clearInputs();
+            con.Close();
+        }
+
+        private void AttendanceDeleteBtn_Click(object sender, EventArgs e)
+        {
+            //string errorMessage = "Select a subject to Delete";
+            int Id = Convert.ToInt32(attendanceData.SelectedRows[0].Cells[0].Value);
+            SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("Update TeacherAttendance set IsDeleted=@IsDeleted where Id=@Id", con);
+                cmd.Parameters.AddWithValue("@IsDeleted", true);
+                cmd.Parameters.AddWithValue("@Id", Id);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                attendanceData.DataSource = dt;
+                BindGrid();
+            }
+            catch (Exception error)
+            {
+                var err = error.Message;
+                MessageBox.Show($"No Data available\n Reason: {err}");
+            }
+            con.Close();
+        }
     }
 }
