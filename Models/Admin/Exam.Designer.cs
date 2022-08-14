@@ -97,6 +97,7 @@
             this.classNameComboBox.Name = "classNameComboBox";
             this.classNameComboBox.Size = new System.Drawing.Size(260, 33);
             this.classNameComboBox.TabIndex = 14;
+            this.classNameComboBox.TextChanged += new System.EventHandler(this.classNameComboBox_TextChanged);
             // 
             // classNameLabel
             // 

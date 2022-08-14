@@ -76,5 +76,14 @@ namespace StudentMgntSystem.Models.Admin
             panelContent.Controls.Add(exam);
             exam.Show();
         }
+
+        private void AttendanceBtn_Click(object sender, EventArgs e)
+        {
+            panelContent.Controls.Clear();
+            StudentAttendance studentAttendance = new StudentAttendance();
+            studentAttendance.TopLevel = false;
+            panelContent.Controls.Add(studentAttendance);
+            studentAttendance.Show();
+        }
     }
 }

@@ -43,15 +43,28 @@ namespace StudentMgntSystem.Models.Admin
         private void Exam_Load(object sender, EventArgs e)
         {
             BindGrid();
-            SeatNumbers();
             DepartmentList();
-            SubjectList();
         }
         private void SeatNumbers()
         {
-            for (int i = 1; i < 21; i++)
+            using (SqlConnection conn = new SqlConnection(constring))
             {
-                seatNumberComboBox.Items.Add($"ST {i}");
+                conn.Open();
+                using (SqlCommand cmr = new SqlCommand("SELECT SeatNumber from Student JOIN Class ON Class.ClassId=Student.ClassId Where student.IsDeleted IS NULL and Class.ClassName=@ClassName", conn))
+                {
+                    cmr.Parameters.AddWithValue("@ClassName", classNameComboBox.Text);
+                    using (SqlDataReader reader = cmr.ExecuteReader())
+                    {
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        seatNumberComboBox.ValueMember = "SeatNUmber";
+                        seatNumberComboBox.SelectedItem = "";
+                        seatNumberComboBox.DataSource = dt;
+                        seatNumberComboBox.SelectedItem = null;
+                    }
+                    cmr.ExecuteNonQuery();
+                }
+                conn.Close();
             }
         }
         public void DepartmentList()
@@ -84,9 +97,9 @@ namespace StudentMgntSystem.Models.Admin
             using (SqlConnection conn = new SqlConnection(constring))
             {
                 conn.Open();
-                using (SqlCommand cmr = new SqlCommand("SELECT SubjectName from Subject Where IsDeleted IS NULL", conn))
+                using (SqlCommand cmr = new SqlCommand("SELECT SubjectName from Subject JOIN Class ON Class.ClassId=Subject.ClassId Where Subject.IsDeleted IS NULL and Class.ClassName=@ClassName", conn))
                 {
-
+                    cmr.Parameters.AddWithValue("@ClassName", classNameComboBox.Text);
                     using (SqlDataReader reader = cmr.ExecuteReader())
                     {
                         DataTable dt = new DataTable();
@@ -226,6 +239,11 @@ namespace StudentMgntSystem.Models.Admin
                 MessageBox.Show("Exam details Deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //clearInputs();
             }
+        }
+        private void classNameComboBox_TextChanged(object sender, EventArgs e)
+        {
+            SeatNumbers();
+            SubjectList();
         }
     }
 }

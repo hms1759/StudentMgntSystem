@@ -56,7 +56,7 @@
             this.studentNextOfKinPhone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.studentSeatNumberComboBox = new System.Windows.Forms.ComboBox();
+            this.seatNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).BeginInit();
             this.SubjectsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -302,12 +302,12 @@
             // SubjectsPanel
             // 
             this.SubjectsPanel.BackColor = System.Drawing.Color.FloralWhite;
+            this.SubjectsPanel.Controls.Add(this.seatNumber);
             this.SubjectsPanel.Controls.Add(this.studentNextOfKinAddress);
             this.SubjectsPanel.Controls.Add(this.label4);
             this.SubjectsPanel.Controls.Add(this.studentNextOfKinPhone);
             this.SubjectsPanel.Controls.Add(this.label3);
             this.SubjectsPanel.Controls.Add(this.label1);
-            this.SubjectsPanel.Controls.Add(this.studentSeatNumberComboBox);
             this.SubjectsPanel.Controls.Add(this.studentDOB);
             this.SubjectsPanel.Controls.Add(this.studentClassComboBox);
             this.SubjectsPanel.Controls.Add(this.studentGenderComboBox);
@@ -384,16 +384,14 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Seat Number";
             // 
-            // studentSeatNumberComboBox
+            // seatNumber
             // 
-            this.studentSeatNumberComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.studentSeatNumberComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.studentSeatNumberComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.studentSeatNumberComboBox.FormattingEnabled = true;
-            this.studentSeatNumberComboBox.Location = new System.Drawing.Point(275, 370);
-            this.studentSeatNumberComboBox.Name = "studentSeatNumberComboBox";
-            this.studentSeatNumberComboBox.Size = new System.Drawing.Size(342, 33);
-            this.studentSeatNumberComboBox.TabIndex = 21;
+            this.seatNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.seatNumber.Location = new System.Drawing.Point(275, 374);
+            this.seatNumber.Multiline = true;
+            this.seatNumber.Name = "seatNumber";
+            this.seatNumber.Size = new System.Drawing.Size(342, 35);
+            this.seatNumber.TabIndex = 27;
             // 
             // Students
             // 
@@ -445,6 +443,6 @@
         private System.Windows.Forms.TextBox studentNextOfKinPhone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox studentSeatNumberComboBox;
+        private System.Windows.Forms.TextBox seatNumber;
     }
 }

@@ -51,15 +51,7 @@ namespace StudentMgntSystem.Models.Admin
         {
             DepartmentList();
             GenderList();
-            SeatNumbers();
             BindGrid();
-        }
-        private void SeatNumbers()
-        {
-            for (int i = 1; i < 21; i++)
-            {
-                studentSeatNumberComboBox.Items.Add($"ST {i}");
-            }
         }
         private void BindGrid()
         {
@@ -94,7 +86,7 @@ namespace StudentMgntSystem.Models.Admin
                         cmd.Parameters.AddWithValue("@Gender",studentGenderComboBox.Text);
                         cmd.Parameters.AddWithValue("@Phone", studentPhoneTextBox.Text);
                         cmd.Parameters.AddWithValue("@Email", studentEmailTextBox.Text);
-                        cmd.Parameters.AddWithValue("@SeatNumber", studentSeatNumberComboBox.Text);
+                        cmd.Parameters.AddWithValue("@SeatNumber", seatNumber.Text);
                         cmd.Parameters.AddWithValue("@Address", studentAddressTextBox.Text);
                         cmd.Parameters.AddWithValue("@NextOfKin", studentNextOfKinTextBox.Text);
                         cmd.Parameters.AddWithValue("@NextOfKinPhone", studentNextOfKinPhone.Text);
@@ -166,7 +158,7 @@ namespace StudentMgntSystem.Models.Admin
                 studentGenderComboBox.SelectedItem = studentData.SelectedRows[0].Cells[3].Value.ToString();
                 studentPhoneTextBox.Text = studentData.SelectedRows[0].Cells[4].Value.ToString();
                 studentEmailTextBox.Text = studentData.SelectedRows[0].Cells[5].Value.ToString();
-                studentSeatNumberComboBox.SelectedItem = studentData.SelectedRows[0].Cells[6].Value.ToString();
+                seatNumber.Text = studentData.SelectedRows[0].Cells[6].Value.ToString();
                 studentAddressTextBox.Text = studentData.SelectedRows[0].Cells[7].Value.ToString();
                 studentNextOfKinTextBox.Text = studentData.SelectedRows[0].Cells[8].Value.ToString();
                 studentNextOfKinPhone.Text = studentData.SelectedRows[0].Cells[9].Value.ToString();
@@ -193,7 +185,7 @@ namespace StudentMgntSystem.Models.Admin
             cmd.Parameters.AddWithValue("@Gender", studentGenderComboBox.Text);
             cmd.Parameters.AddWithValue("@Phone", studentPhoneTextBox.Text);
             cmd.Parameters.AddWithValue("@Email", studentEmailTextBox.Text);
-            cmd.Parameters.AddWithValue("@SeatNumber", studentSeatNumberComboBox.Text);
+            cmd.Parameters.AddWithValue("@SeatNumber", seatNumber.Text);
             cmd.Parameters.AddWithValue("@Address", studentAddressTextBox.Text);
             cmd.Parameters.AddWithValue("@NextOfKin", studentNextOfKinTextBox.Text);
             cmd.Parameters.AddWithValue("@NextOfKinPhone", studentNextOfKinPhone.Text);

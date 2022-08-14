@@ -34,13 +34,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.classRegisterBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.examBtn = new System.Windows.Forms.Button();
             this.ExpenseBtn = new System.Windows.Forms.Button();
             this.feesBtn = new System.Windows.Forms.Button();
             this.studentsBtn = new System.Windows.Forms.Button();
             this.teacherBtn = new System.Windows.Forms.Button();
             this.subjectsRegisterBtn = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.examBtn = new System.Windows.Forms.Button();
+            this.AttendanceBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +98,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.AttendanceBtn);
             this.panel2.Controls.Add(this.examBtn);
             this.panel2.Controls.Add(this.ExpenseBtn);
             this.panel2.Controls.Add(this.feesBtn);
@@ -109,6 +111,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(206, 823);
             this.panel2.TabIndex = 3;
+            // 
+            // examBtn
+            // 
+            this.examBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.examBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.examBtn.ForeColor = System.Drawing.Color.White;
+            this.examBtn.Location = new System.Drawing.Point(11, 389);
+            this.examBtn.Name = "examBtn";
+            this.examBtn.Size = new System.Drawing.Size(189, 88);
+            this.examBtn.TabIndex = 9;
+            this.examBtn.Text = "Exam";
+            this.examBtn.UseVisualStyleBackColor = false;
+            this.examBtn.Click += new System.EventHandler(this.examBtn_Click);
             // 
             // ExpenseBtn
             // 
@@ -186,18 +201,18 @@
             this.panelContent.Size = new System.Drawing.Size(1493, 823);
             this.panelContent.TabIndex = 4;
             // 
-            // examBtn
+            // AttendanceBtn
             // 
-            this.examBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.examBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.examBtn.ForeColor = System.Drawing.Color.White;
-            this.examBtn.Location = new System.Drawing.Point(11, 389);
-            this.examBtn.Name = "examBtn";
-            this.examBtn.Size = new System.Drawing.Size(189, 88);
-            this.examBtn.TabIndex = 9;
-            this.examBtn.Text = "Exam";
-            this.examBtn.UseVisualStyleBackColor = false;
-            this.examBtn.Click += new System.EventHandler(this.examBtn_Click);
+            this.AttendanceBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AttendanceBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttendanceBtn.ForeColor = System.Drawing.Color.White;
+            this.AttendanceBtn.Location = new System.Drawing.Point(11, 680);
+            this.AttendanceBtn.Name = "AttendanceBtn";
+            this.AttendanceBtn.Size = new System.Drawing.Size(189, 88);
+            this.AttendanceBtn.TabIndex = 10;
+            this.AttendanceBtn.Text = "Attendace";
+            this.AttendanceBtn.UseVisualStyleBackColor = false;
+            this.AttendanceBtn.Click += new System.EventHandler(this.AttendanceBtn_Click);
             // 
             // Home
             // 
@@ -235,5 +250,6 @@
         public System.Windows.Forms.Button feesBtn;
         public System.Windows.Forms.Button ExpenseBtn;
         public System.Windows.Forms.Button examBtn;
+        public System.Windows.Forms.Button AttendanceBtn;
     }
 }
