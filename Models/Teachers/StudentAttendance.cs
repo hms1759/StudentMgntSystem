@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudentMgntSystem.Models.Admin
+namespace StudentMgntSystem.Models.Teachers
 {
     public partial class StudentAttendance : Form
     {

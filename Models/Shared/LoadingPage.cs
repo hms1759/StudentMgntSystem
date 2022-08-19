@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudentMgntSystem
+namespace StudentMgntSystem.Models.Shared
 {
     public partial class LoadingPage : Form
     {

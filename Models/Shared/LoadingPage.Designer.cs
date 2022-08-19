@@ -1,4 +1,4 @@
-﻿namespace StudentMgntSystem
+﻿namespace StudentMgntSystem.Models.Shared
 {
     partial class LoadingPage
     {

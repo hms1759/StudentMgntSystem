@@ -1,5 +1,5 @@
 ﻿
-namespace StudentMgntSystem
+namespace StudentMgntSystem.Models.Shared
 {
     partial class StudentMgnt
     {
@@ -30,11 +30,11 @@ namespace StudentMgntSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentMgnt));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.bodyPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@ namespace StudentMgntSystem
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1699, 88);
             this.panel1.TabIndex = 0;
@@ -54,7 +54,7 @@ namespace StudentMgntSystem
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(1337, 25);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(237, 59);
             this.button1.TabIndex = 2;
@@ -69,12 +69,12 @@ namespace StudentMgntSystem
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(16, 16);
+            this.label2.Location = new System.Drawing.Point(611, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(452, 51);
+            this.label2.Size = new System.Drawing.Size(615, 51);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Student Management";
+            this.label2.Text = "Student Management System";
             // 
             // label1
             // 
@@ -86,17 +86,27 @@ namespace StudentMgntSystem
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
+            // bodyPanel
+            // 
+            this.bodyPanel.BackgroundImage = global::StudentMgntSystem.Properties.Resources.imgHome;
+            this.bodyPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyPanel.Location = new System.Drawing.Point(0, 88);
+            this.bodyPanel.Name = "bodyPanel";
+            this.bodyPanel.Size = new System.Drawing.Size(1699, 823);
+            this.bodyPanel.TabIndex = 1;
+            // 
             // StudentMgnt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1699, 911);
+            this.Controls.Add(this.bodyPanel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1725, 982);
             this.MinimumSize = new System.Drawing.Size(1725, 982);
@@ -119,6 +129,7 @@ namespace StudentMgntSystem
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel bodyPanel;
     }
 }
 

@@ -1,4 +1,4 @@
-﻿namespace StudentMgntSystem.Models.Admin
+﻿namespace StudentMgntSystem.Models.Teachers
 {
     partial class StudentAttendance
     {

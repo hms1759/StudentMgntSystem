@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentMgntSystem.Models.Teachers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

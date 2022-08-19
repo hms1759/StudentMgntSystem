@@ -48,10 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
-    <Compile Include="LoadingPage.cs">
+    <Compile Include="Models\Shared\LoadingPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadingPage.Designer.cs">
+    <Compile Include="Models\Shared\LoadingPage.Designer.cs">
       <DependentUpon>LoadingPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin\Class.cs">
@@ -65,6 +65,12 @@
     </Compile>
     <Compile Include="Models\Admin\Exam.Designer.cs">
       <DependentUpon>Exam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin\ExamRO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Admin\ExamRO.Designer.cs">
+      <DependentUpon>ExamRO.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin\Expense.cs">
       <SubType>Form</SubType>
@@ -90,10 +96,28 @@
     <Compile Include="Models\Admin\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Admin\StudentAttendance.cs">
+    <Compile Include="Models\Admin\TeacherAttendanceRO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Models\Admin\StudentAttendance.Designer.cs">
+    <Compile Include="Models\Admin\TeacherAttendanceRO.Designer.cs">
+      <DependentUpon>TeacherAttendanceRO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Teachers\ExamReadOnly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Teachers\ExamReadOnly.Designer.cs">
+      <DependentUpon>ExamReadOnly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Teachers\StudentAttendanceRO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Teachers\StudentAttendanceRO.Designer.cs">
+      <DependentUpon>StudentAttendanceRO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Teachers\StudentAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Teachers\StudentAttendance.Designer.cs">
       <DependentUpon>StudentAttendance.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin\Students.cs">
@@ -139,17 +163,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SchoolMgnDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="StudentMgnt.cs">
+    <Compile Include="Models\Shared\StudentMgnt.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="StudentMgnt.Designer.cs">
+    <Compile Include="Models\Shared\StudentMgnt.Designer.cs">
       <DependentUpon>StudentMgnt.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="LoadingPage.resx">
+    <EmbeddedResource Include="Models\Shared\LoadingPage.resx">
       <DependentUpon>LoadingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Admin\Class.resx">
@@ -157,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Admin\Exam.resx">
       <DependentUpon>Exam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Admin\ExamRO.resx">
+      <DependentUpon>ExamRO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Admin\Expense.resx">
       <DependentUpon>Expense.cs</DependentUpon>
@@ -170,7 +197,16 @@
     <EmbeddedResource Include="Models\Admin\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Models\Admin\StudentAttendance.resx">
+    <EmbeddedResource Include="Models\Admin\TeacherAttendanceRO.resx">
+      <DependentUpon>TeacherAttendanceRO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Teachers\ExamReadOnly.resx">
+      <DependentUpon>ExamReadOnly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Teachers\StudentAttendanceRO.resx">
+      <DependentUpon>StudentAttendanceRO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Teachers\StudentAttendance.resx">
       <DependentUpon>StudentAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Admin\Students.resx">
@@ -192,7 +228,7 @@
     <EmbeddedResource Include="Models\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentMgnt.resx">
+    <EmbeddedResource Include="Models\Shared\StudentMgnt.resx">
       <DependentUpon>StudentMgnt.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -247,7 +283,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Students\" />
-    <Folder Include="Models\Teachers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

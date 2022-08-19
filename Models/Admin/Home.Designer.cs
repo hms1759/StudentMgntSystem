@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.classRegisterBtn = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.sidePanel = new System.Windows.Forms.Panel();
+            this.AttendanceBtn = new System.Windows.Forms.Button();
             this.examBtn = new System.Windows.Forms.Button();
             this.ExpenseBtn = new System.Windows.Forms.Button();
             this.feesBtn = new System.Windows.Forms.Button();
@@ -41,9 +41,10 @@
             this.teacherBtn = new System.Windows.Forms.Button();
             this.subjectsRegisterBtn = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.AttendanceBtn = new System.Windows.Forms.Button();
+            this.bodyPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.sidePanel.SuspendLayout();
+            this.bodyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,7 +88,7 @@
             this.classRegisterBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.classRegisterBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classRegisterBtn.ForeColor = System.Drawing.Color.White;
-            this.classRegisterBtn.Location = new System.Drawing.Point(12, 7);
+            this.classRegisterBtn.Location = new System.Drawing.Point(11, 7);
             this.classRegisterBtn.Name = "classRegisterBtn";
             this.classRegisterBtn.Size = new System.Drawing.Size(189, 88);
             this.classRegisterBtn.TabIndex = 3;
@@ -95,22 +96,35 @@
             this.classRegisterBtn.UseVisualStyleBackColor = false;
             this.classRegisterBtn.Click += new System.EventHandler(this.classRegisterBtn_Click);
             // 
-            // panel2
+            // sidePanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.AttendanceBtn);
-            this.panel2.Controls.Add(this.examBtn);
-            this.panel2.Controls.Add(this.ExpenseBtn);
-            this.panel2.Controls.Add(this.feesBtn);
-            this.panel2.Controls.Add(this.studentsBtn);
-            this.panel2.Controls.Add(this.teacherBtn);
-            this.panel2.Controls.Add(this.subjectsRegisterBtn);
-            this.panel2.Controls.Add(this.classRegisterBtn);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 88);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(206, 823);
-            this.panel2.TabIndex = 3;
+            this.sidePanel.BackColor = System.Drawing.Color.Transparent;
+            this.sidePanel.Controls.Add(this.AttendanceBtn);
+            this.sidePanel.Controls.Add(this.examBtn);
+            this.sidePanel.Controls.Add(this.ExpenseBtn);
+            this.sidePanel.Controls.Add(this.feesBtn);
+            this.sidePanel.Controls.Add(this.studentsBtn);
+            this.sidePanel.Controls.Add(this.teacherBtn);
+            this.sidePanel.Controls.Add(this.subjectsRegisterBtn);
+            this.sidePanel.Controls.Add(this.classRegisterBtn);
+            this.sidePanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidePanel.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel.Name = "sidePanel";
+            this.sidePanel.Size = new System.Drawing.Size(206, 823);
+            this.sidePanel.TabIndex = 3;
+            // 
+            // AttendanceBtn
+            // 
+            this.AttendanceBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AttendanceBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttendanceBtn.ForeColor = System.Drawing.Color.White;
+            this.AttendanceBtn.Location = new System.Drawing.Point(11, 680);
+            this.AttendanceBtn.Name = "AttendanceBtn";
+            this.AttendanceBtn.Size = new System.Drawing.Size(189, 88);
+            this.AttendanceBtn.TabIndex = 10;
+            this.AttendanceBtn.Text = "Attendace";
+            this.AttendanceBtn.UseVisualStyleBackColor = false;
+            this.AttendanceBtn.Click += new System.EventHandler(this.AttendanceBtn_Click);
             // 
             // examBtn
             // 
@@ -194,34 +208,30 @@
             // 
             this.panelContent.BackColor = System.Drawing.Color.Transparent;
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(206, 88);
+            this.panelContent.Location = new System.Drawing.Point(206, 0);
             this.panelContent.MaximumSize = new System.Drawing.Size(1493, 823);
             this.panelContent.MinimumSize = new System.Drawing.Size(1493, 823);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(1493, 823);
             this.panelContent.TabIndex = 4;
             // 
-            // AttendanceBtn
+            // bodyPanel
             // 
-            this.AttendanceBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AttendanceBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AttendanceBtn.ForeColor = System.Drawing.Color.White;
-            this.AttendanceBtn.Location = new System.Drawing.Point(11, 680);
-            this.AttendanceBtn.Name = "AttendanceBtn";
-            this.AttendanceBtn.Size = new System.Drawing.Size(189, 88);
-            this.AttendanceBtn.TabIndex = 10;
-            this.AttendanceBtn.Text = "Attendace";
-            this.AttendanceBtn.UseVisualStyleBackColor = false;
-            this.AttendanceBtn.Click += new System.EventHandler(this.AttendanceBtn_Click);
+            this.bodyPanel.BackgroundImage = global::StudentMgntSystem.Properties.Resources.imgHome;
+            this.bodyPanel.Controls.Add(this.panelContent);
+            this.bodyPanel.Controls.Add(this.sidePanel);
+            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyPanel.Location = new System.Drawing.Point(0, 88);
+            this.bodyPanel.Name = "bodyPanel";
+            this.bodyPanel.Size = new System.Drawing.Size(1699, 823);
+            this.bodyPanel.TabIndex = 2;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1699, 911);
-            this.Controls.Add(this.panelContent);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.bodyPanel);
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(1725, 982);
             this.MinimumSize = new System.Drawing.Size(1725, 982);
@@ -231,7 +241,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.sidePanel.ResumeLayout(false);
+            this.bodyPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -242,7 +253,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button classRegisterBtn;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel sidePanel;
         private System.Windows.Forms.Button subjectsRegisterBtn;
         public System.Windows.Forms.Panel panelContent;
         public System.Windows.Forms.Button teacherBtn;
@@ -251,5 +262,6 @@
         public System.Windows.Forms.Button ExpenseBtn;
         public System.Windows.Forms.Button examBtn;
         public System.Windows.Forms.Button AttendanceBtn;
+        private System.Windows.Forms.Panel bodyPanel;
     }
 }
