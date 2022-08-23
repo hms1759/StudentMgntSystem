@@ -108,6 +108,12 @@
     <Compile Include="Models\Teachers\ExamReadOnly.Designer.cs">
       <DependentUpon>ExamReadOnly.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Teachers\Home1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Teachers\Home1.Designer.cs">
+      <DependentUpon>Home1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Teachers\StudentAttendanceRO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Teachers\ExamReadOnly.resx">
       <DependentUpon>ExamReadOnly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Teachers\Home1.resx">
+      <DependentUpon>Home1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\Teachers\StudentAttendanceRO.resx">
       <DependentUpon>StudentAttendanceRO.cs</DependentUpon>

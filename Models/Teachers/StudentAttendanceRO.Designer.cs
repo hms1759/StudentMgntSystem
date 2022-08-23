@@ -61,6 +61,7 @@
             this.MinimumSize = new System.Drawing.Size(1493, 823);
             this.Name = "StudentAttendanceRO";
             this.Text = "StudentAttendanceRO";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.StudentAttendanceRO_Load);
             ((System.ComponentModel.ISupportInitialize)(this.attendanceData)).EndInit();
             this.ResumeLayout(false);

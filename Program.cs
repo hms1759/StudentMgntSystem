@@ -17,7 +17,7 @@ namespace StudentMgntSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StudentMgnt());
+            Application.Run(new LoadingPage());
         }
     }
 }

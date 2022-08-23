@@ -25,6 +25,8 @@ namespace StudentMgntSystem.Models.Shared
             {
                 progressTimer.Stop();
                 this.Hide();
+                StudentMgnt studentMgnt = new StudentMgnt();
+                studentMgnt.ShowDialog();
             }
         }
 
