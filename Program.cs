@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentMgntSystem.Models.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace StudentMgntSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StudentMgnt());
+            Application.Run(new LoadingPage());
         }
     }
 }
