@@ -195,5 +195,30 @@ namespace StudentMgntSystem.Models.Teachers
         {
 
         }
+
+        private void attendanceData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                classNameComboBox.Text = attendanceData.SelectedRows[0].Cells[1].Value.ToString();
+                subjectNameComboBox.Text = attendanceData.SelectedRows[0].Cells[2].Value.ToString();
+                seatNumberComboBox.Text = attendanceData.SelectedRows[0].Cells[3].Value.ToString();
+                if (attendanceData.SelectedRows[0].Cells[4].Value is true)
+                {
+                    statusComboBox.Text = "PRESENT";
+                }
+                else if (attendanceData.SelectedRows[0].Cells[4].Value is false)
+                {
+                    statusComboBox.Text = "ABSENT";
+                }
+                attendanceDate.Text = attendanceData.SelectedRows[0].Cells[5].Value.ToString();
+                //teacherNameComboBox.Enabled = false;
+            }
+            catch (Exception error)
+            {
+                var err = error.Message;
+                MessageBox.Show($"No Data available\n Reason: {err}");
+            }
+        }
     }
 }

@@ -83,6 +83,36 @@ namespace StudentMgntSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_correct_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-correct-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_lock_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-lock-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-user-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imgHome {
             get {
                 object obj = ResourceManager.GetObject("imgHome", resourceCulture);
@@ -106,6 +136,16 @@ namespace StudentMgntSystem.Properties {
         internal static System.Drawing.Bitmap imgHome2 {
             get {
                 object obj = ResourceManager.GetObject("imgHome2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Open_Source_School_Management {
+            get {
+                object obj = ResourceManager.GetObject("Open-Source-School-Management", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

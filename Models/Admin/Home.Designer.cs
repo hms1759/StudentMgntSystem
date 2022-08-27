@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Logout = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.bodyPanel = new System.Windows.Forms.Panel();
             this.panelContent = new System.Windows.Forms.Panel();
@@ -41,7 +42,6 @@
             this.teacherBtn = new System.Windows.Forms.Button();
             this.subjectsRegisterBtn = new System.Windows.Forms.Button();
             this.classRegisterBtn = new System.Windows.Forms.Button();
-            this.Logout = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.bodyPanel.SuspendLayout();
             this.sidePanel.SuspendLayout();
@@ -56,8 +56,22 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1699, 88);
+            this.panel1.Size = new System.Drawing.Size(1688, 88);
             this.panel1.TabIndex = 1;
+            // 
+            // Logout
+            // 
+            this.Logout.AutoSize = true;
+            this.Logout.Font = new System.Drawing.Font("Times New Roman", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Logout.LinkColor = System.Drawing.Color.Red;
+            this.Logout.Location = new System.Drawing.Point(1558, 37);
+            this.Logout.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Logout.Name = "Logout";
+            this.Logout.Size = new System.Drawing.Size(97, 31);
+            this.Logout.TabIndex = 3;
+            this.Logout.TabStop = true;
+            this.Logout.Text = "Logout";
+            this.Logout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Logout_LinkClicked);
             // 
             // label2
             // 
@@ -66,7 +80,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(263, 20);
+            this.label2.Location = new System.Drawing.Point(264, 19);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(615, 51);
@@ -75,25 +89,27 @@
             // 
             // bodyPanel
             // 
-            this.bodyPanel.BackgroundImage = global::StudentMgntSystem.Properties.Resources.imgHome;
             this.bodyPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bodyPanel.Controls.Add(this.panelContent);
             this.bodyPanel.Controls.Add(this.sidePanel);
             this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyPanel.Location = new System.Drawing.Point(0, 88);
+            this.bodyPanel.Margin = new System.Windows.Forms.Padding(4);
             this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(1699, 823);
+            this.bodyPanel.Size = new System.Drawing.Size(1688, 777);
             this.bodyPanel.TabIndex = 2;
             // 
             // panelContent
             // 
             this.panelContent.BackColor = System.Drawing.Color.Transparent;
+            this.panelContent.BackgroundImage = global::StudentMgntSystem.Properties.Resources.imgHome;
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(206, 0);
-            this.panelContent.MaximumSize = new System.Drawing.Size(1493, 823);
-            this.panelContent.MinimumSize = new System.Drawing.Size(1493, 823);
+            this.panelContent.Margin = new System.Windows.Forms.Padding(4);
+            this.panelContent.MaximumSize = new System.Drawing.Size(1492, 823);
+            this.panelContent.MinimumSize = new System.Drawing.Size(1492, 823);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1493, 823);
+            this.panelContent.Size = new System.Drawing.Size(1492, 823);
             this.panelContent.TabIndex = 4;
             // 
             // sidePanel
@@ -109,8 +125,9 @@
             this.sidePanel.Controls.Add(this.classRegisterBtn);
             this.sidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePanel.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel.Margin = new System.Windows.Forms.Padding(4);
             this.sidePanel.Name = "sidePanel";
-            this.sidePanel.Size = new System.Drawing.Size(206, 823);
+            this.sidePanel.Size = new System.Drawing.Size(206, 777);
             this.sidePanel.TabIndex = 3;
             // 
             // AttendanceBtn
@@ -118,9 +135,10 @@
             this.AttendanceBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.AttendanceBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AttendanceBtn.ForeColor = System.Drawing.Color.White;
-            this.AttendanceBtn.Location = new System.Drawing.Point(11, 680);
+            this.AttendanceBtn.Location = new System.Drawing.Point(12, 681);
+            this.AttendanceBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AttendanceBtn.Name = "AttendanceBtn";
-            this.AttendanceBtn.Size = new System.Drawing.Size(189, 88);
+            this.AttendanceBtn.Size = new System.Drawing.Size(188, 88);
             this.AttendanceBtn.TabIndex = 10;
             this.AttendanceBtn.Text = "Attendace";
             this.AttendanceBtn.UseVisualStyleBackColor = false;
@@ -131,9 +149,10 @@
             this.examBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.examBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.examBtn.ForeColor = System.Drawing.Color.White;
-            this.examBtn.Location = new System.Drawing.Point(11, 389);
+            this.examBtn.Location = new System.Drawing.Point(12, 388);
+            this.examBtn.Margin = new System.Windows.Forms.Padding(4);
             this.examBtn.Name = "examBtn";
-            this.examBtn.Size = new System.Drawing.Size(189, 88);
+            this.examBtn.Size = new System.Drawing.Size(188, 88);
             this.examBtn.TabIndex = 9;
             this.examBtn.Text = "Exam";
             this.examBtn.UseVisualStyleBackColor = false;
@@ -144,9 +163,10 @@
             this.ExpenseBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ExpenseBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExpenseBtn.ForeColor = System.Drawing.Color.White;
-            this.ExpenseBtn.Location = new System.Drawing.Point(11, 586);
+            this.ExpenseBtn.Location = new System.Drawing.Point(12, 587);
+            this.ExpenseBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ExpenseBtn.Name = "ExpenseBtn";
-            this.ExpenseBtn.Size = new System.Drawing.Size(189, 88);
+            this.ExpenseBtn.Size = new System.Drawing.Size(188, 88);
             this.ExpenseBtn.TabIndex = 8;
             this.ExpenseBtn.Text = "Expense";
             this.ExpenseBtn.UseVisualStyleBackColor = false;
@@ -158,8 +178,9 @@
             this.feesBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feesBtn.ForeColor = System.Drawing.Color.White;
             this.feesBtn.Location = new System.Drawing.Point(12, 483);
+            this.feesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.feesBtn.Name = "feesBtn";
-            this.feesBtn.Size = new System.Drawing.Size(189, 88);
+            this.feesBtn.Size = new System.Drawing.Size(188, 88);
             this.feesBtn.TabIndex = 7;
             this.feesBtn.Text = "Fees";
             this.feesBtn.UseVisualStyleBackColor = false;
@@ -170,9 +191,10 @@
             this.studentsBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.studentsBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentsBtn.ForeColor = System.Drawing.Color.White;
-            this.studentsBtn.Location = new System.Drawing.Point(14, 289);
+            this.studentsBtn.Location = new System.Drawing.Point(14, 288);
+            this.studentsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.studentsBtn.Name = "studentsBtn";
-            this.studentsBtn.Size = new System.Drawing.Size(189, 88);
+            this.studentsBtn.Size = new System.Drawing.Size(188, 88);
             this.studentsBtn.TabIndex = 6;
             this.studentsBtn.Text = "Students";
             this.studentsBtn.UseVisualStyleBackColor = false;
@@ -183,9 +205,10 @@
             this.teacherBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.teacherBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teacherBtn.ForeColor = System.Drawing.Color.White;
-            this.teacherBtn.Location = new System.Drawing.Point(11, 195);
+            this.teacherBtn.Location = new System.Drawing.Point(12, 194);
+            this.teacherBtn.Margin = new System.Windows.Forms.Padding(4);
             this.teacherBtn.Name = "teacherBtn";
-            this.teacherBtn.Size = new System.Drawing.Size(189, 88);
+            this.teacherBtn.Size = new System.Drawing.Size(188, 88);
             this.teacherBtn.TabIndex = 5;
             this.teacherBtn.Text = "Teachers";
             this.teacherBtn.UseVisualStyleBackColor = false;
@@ -196,9 +219,10 @@
             this.subjectsRegisterBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.subjectsRegisterBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectsRegisterBtn.ForeColor = System.Drawing.Color.White;
-            this.subjectsRegisterBtn.Location = new System.Drawing.Point(11, 101);
+            this.subjectsRegisterBtn.Location = new System.Drawing.Point(12, 102);
+            this.subjectsRegisterBtn.Margin = new System.Windows.Forms.Padding(4);
             this.subjectsRegisterBtn.Name = "subjectsRegisterBtn";
-            this.subjectsRegisterBtn.Size = new System.Drawing.Size(189, 88);
+            this.subjectsRegisterBtn.Size = new System.Drawing.Size(188, 88);
             this.subjectsRegisterBtn.TabIndex = 4;
             this.subjectsRegisterBtn.Text = "Subjects";
             this.subjectsRegisterBtn.UseVisualStyleBackColor = false;
@@ -209,35 +233,25 @@
             this.classRegisterBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.classRegisterBtn.Font = new System.Drawing.Font("Sitka Text", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classRegisterBtn.ForeColor = System.Drawing.Color.White;
-            this.classRegisterBtn.Location = new System.Drawing.Point(11, 7);
+            this.classRegisterBtn.Location = new System.Drawing.Point(12, 8);
+            this.classRegisterBtn.Margin = new System.Windows.Forms.Padding(4);
             this.classRegisterBtn.Name = "classRegisterBtn";
-            this.classRegisterBtn.Size = new System.Drawing.Size(189, 88);
+            this.classRegisterBtn.Size = new System.Drawing.Size(188, 88);
             this.classRegisterBtn.TabIndex = 3;
             this.classRegisterBtn.Text = "Class";
             this.classRegisterBtn.UseVisualStyleBackColor = false;
             this.classRegisterBtn.Click += new System.EventHandler(this.classRegisterBtn_Click);
             // 
-            // Logout
-            // 
-            this.Logout.AutoSize = true;
-            this.Logout.Font = new System.Drawing.Font("Times New Roman", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logout.LinkColor = System.Drawing.Color.Red;
-            this.Logout.Location = new System.Drawing.Point(1558, 36);
-            this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(97, 31);
-            this.Logout.TabIndex = 3;
-            this.Logout.TabStop = true;
-            this.Logout.Text = "Logout";
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1699, 911);
+            this.ClientSize = new System.Drawing.Size(1688, 865);
             this.Controls.Add(this.bodyPanel);
             this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(1725, 982);
-            this.MinimumSize = new System.Drawing.Size(1725, 982);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1714, 952);
+            this.MinimumSize = new System.Drawing.Size(1268, 640);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";

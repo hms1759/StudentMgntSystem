@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.seatNumberComboBox = new System.Windows.Forms.ComboBox();
+            this.seatNumberLabel = new System.Windows.Forms.Label();
+            this.subjectNameLabel = new System.Windows.Forms.Label();
+            this.classNameLabel = new System.Windows.Forms.Label();
+            this.subjectNameComboBox = new System.Windows.Forms.ComboBox();
+            this.classNameComboBox = new System.Windows.Forms.ComboBox();
             this.AttendanceSearchBtn = new System.Windows.Forms.Button();
             this.AttendanceDeleteBtn = new System.Windows.Forms.Button();
             this.AttendanceEditBtn = new System.Windows.Forms.Button();
@@ -41,12 +47,6 @@
             this.studentNameLabel = new System.Windows.Forms.Label();
             this.dataPanel = new System.Windows.Forms.Panel();
             this.attendanceData = new System.Windows.Forms.DataGridView();
-            this.classNameComboBox = new System.Windows.Forms.ComboBox();
-            this.subjectNameComboBox = new System.Windows.Forms.ComboBox();
-            this.classNameLabel = new System.Windows.Forms.Label();
-            this.subjectNameLabel = new System.Windows.Forms.Label();
-            this.seatNumberLabel = new System.Windows.Forms.Label();
-            this.seatNumberComboBox = new System.Windows.Forms.ComboBox();
             this.detailsPanel.SuspendLayout();
             this.dataPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceData)).BeginInit();
@@ -76,6 +76,70 @@
             this.detailsPanel.Name = "detailsPanel";
             this.detailsPanel.Size = new System.Drawing.Size(586, 752);
             this.detailsPanel.TabIndex = 0;
+            // 
+            // seatNumberComboBox
+            // 
+            this.seatNumberComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.seatNumberComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.seatNumberComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.seatNumberComboBox.FormattingEnabled = true;
+            this.seatNumberComboBox.Location = new System.Drawing.Point(272, 292);
+            this.seatNumberComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.seatNumberComboBox.Name = "seatNumberComboBox";
+            this.seatNumberComboBox.Size = new System.Drawing.Size(260, 33);
+            this.seatNumberComboBox.TabIndex = 42;
+            // 
+            // seatNumberLabel
+            // 
+            this.seatNumberLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seatNumberLabel.Location = new System.Drawing.Point(26, 292);
+            this.seatNumberLabel.Name = "seatNumberLabel";
+            this.seatNumberLabel.Size = new System.Drawing.Size(208, 34);
+            this.seatNumberLabel.TabIndex = 41;
+            this.seatNumberLabel.Text = "Seat Number";
+            // 
+            // subjectNameLabel
+            // 
+            this.subjectNameLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subjectNameLabel.Location = new System.Drawing.Point(26, 209);
+            this.subjectNameLabel.Name = "subjectNameLabel";
+            this.subjectNameLabel.Size = new System.Drawing.Size(208, 34);
+            this.subjectNameLabel.TabIndex = 40;
+            this.subjectNameLabel.Text = "Subject Name";
+            // 
+            // classNameLabel
+            // 
+            this.classNameLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classNameLabel.Location = new System.Drawing.Point(26, 116);
+            this.classNameLabel.Name = "classNameLabel";
+            this.classNameLabel.Size = new System.Drawing.Size(208, 34);
+            this.classNameLabel.TabIndex = 39;
+            this.classNameLabel.Text = "Class Name";
+            // 
+            // subjectNameComboBox
+            // 
+            this.subjectNameComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.subjectNameComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.subjectNameComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.subjectNameComboBox.FormattingEnabled = true;
+            this.subjectNameComboBox.Location = new System.Drawing.Point(272, 210);
+            this.subjectNameComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.subjectNameComboBox.Name = "subjectNameComboBox";
+            this.subjectNameComboBox.Size = new System.Drawing.Size(260, 33);
+            this.subjectNameComboBox.TabIndex = 38;
+            // 
+            // classNameComboBox
+            // 
+            this.classNameComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.classNameComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.classNameComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.classNameComboBox.FormattingEnabled = true;
+            this.classNameComboBox.Location = new System.Drawing.Point(272, 116);
+            this.classNameComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.classNameComboBox.Name = "classNameComboBox";
+            this.classNameComboBox.Size = new System.Drawing.Size(260, 33);
+            this.classNameComboBox.TabIndex = 37;
+            this.classNameComboBox.TextChanged += new System.EventHandler(this.classNameComboBox_TextChanged);
             // 
             // AttendanceSearchBtn
             // 
@@ -219,70 +283,7 @@
             this.attendanceData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.attendanceData.Size = new System.Drawing.Size(881, 752);
             this.attendanceData.TabIndex = 7;
-            // 
-            // classNameComboBox
-            // 
-            this.classNameComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.classNameComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.classNameComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.classNameComboBox.FormattingEnabled = true;
-            this.classNameComboBox.Location = new System.Drawing.Point(272, 116);
-            this.classNameComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.classNameComboBox.Name = "classNameComboBox";
-            this.classNameComboBox.Size = new System.Drawing.Size(260, 33);
-            this.classNameComboBox.TabIndex = 37;
-            this.classNameComboBox.TextChanged += new System.EventHandler(this.classNameComboBox_TextChanged);
-            // 
-            // subjectNameComboBox
-            // 
-            this.subjectNameComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.subjectNameComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.subjectNameComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.subjectNameComboBox.FormattingEnabled = true;
-            this.subjectNameComboBox.Location = new System.Drawing.Point(272, 210);
-            this.subjectNameComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.subjectNameComboBox.Name = "subjectNameComboBox";
-            this.subjectNameComboBox.Size = new System.Drawing.Size(260, 33);
-            this.subjectNameComboBox.TabIndex = 38;
-            // 
-            // classNameLabel
-            // 
-            this.classNameLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.classNameLabel.Location = new System.Drawing.Point(26, 116);
-            this.classNameLabel.Name = "classNameLabel";
-            this.classNameLabel.Size = new System.Drawing.Size(208, 34);
-            this.classNameLabel.TabIndex = 39;
-            this.classNameLabel.Text = "Class Name";
-            // 
-            // subjectNameLabel
-            // 
-            this.subjectNameLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectNameLabel.Location = new System.Drawing.Point(26, 209);
-            this.subjectNameLabel.Name = "subjectNameLabel";
-            this.subjectNameLabel.Size = new System.Drawing.Size(208, 34);
-            this.subjectNameLabel.TabIndex = 40;
-            this.subjectNameLabel.Text = "Subject Name";
-            // 
-            // seatNumberLabel
-            // 
-            this.seatNumberLabel.Font = new System.Drawing.Font("Sitka Small", 7.874999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seatNumberLabel.Location = new System.Drawing.Point(26, 292);
-            this.seatNumberLabel.Name = "seatNumberLabel";
-            this.seatNumberLabel.Size = new System.Drawing.Size(208, 34);
-            this.seatNumberLabel.TabIndex = 41;
-            this.seatNumberLabel.Text = "Seat Number";
-            // 
-            // seatNumberComboBox
-            // 
-            this.seatNumberComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.seatNumberComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.seatNumberComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.seatNumberComboBox.FormattingEnabled = true;
-            this.seatNumberComboBox.Location = new System.Drawing.Point(272, 292);
-            this.seatNumberComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.seatNumberComboBox.Name = "seatNumberComboBox";
-            this.seatNumberComboBox.Size = new System.Drawing.Size(260, 33);
-            this.seatNumberComboBox.TabIndex = 42;
+            this.attendanceData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.attendanceData_CellClick);
             // 
             // StudentAttendance
             // 

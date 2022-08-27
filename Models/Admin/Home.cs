@@ -1,4 +1,5 @@
-﻿using StudentMgntSystem.Models.Teachers;
+﻿using StudentMgntSystem.Models.Shared;
+using StudentMgntSystem.Models.Teachers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,6 +86,16 @@ namespace StudentMgntSystem.Models.Admin
             studentAttendance.TopLevel = false;
             panelContent.Controls.Add(studentAttendance);
             studentAttendance.Show();
+        }
+
+        private void Logout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //this.Visible = false;
+            //StudentMgnt sm = new StudentMgnt();
+            //sm.Visible = true;
+            this.Hide();
+            StudentMgnt studentMgnt = new StudentMgnt();
+            studentMgnt.ShowDialog();
         }
     }
 }

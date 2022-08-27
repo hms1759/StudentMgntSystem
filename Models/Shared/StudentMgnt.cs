@@ -1,15 +1,10 @@
-﻿using StudentMgntSystem.Models;
-using StudentMgntSystem.Models.Admin;
+﻿using StudentMgntSystem.Models.Admin;
+using StudentMgntSystem.Models.Students;
 using StudentMgntSystem.Models.Teachers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StudentMgntSystem.Models.Shared
@@ -21,27 +16,29 @@ namespace StudentMgntSystem.Models.Shared
             InitializeComponent();
         }
         string constring = DBconnect.DbConnectstring;
+        //string loginName = LoginDetails.LoginName;
         private void loginButton_Click(object sender, EventArgs e)
         {
+            LoginDetails.LoginName = usernameTextBox.Text;
             if (usernameTextBox.Text == "ADMIN" && passwordTextBox.Text == "ADMIN")
             {
                 this.Hide();
-               // MessageBox.Show("Login successfully as Admin");
                 Home home = new Home();
                 home.ShowDialog();
             }
             else if (IsTeacher())
             {
                 this.Hide();
-                Home1 home = new Home1();
-                home.ShowDialog();
+                Home1 home1 = new Home1();
+                home1.ShowDialog();
             }
 
             else if (IsStudent())
             {
-
+                this.Hide();
+                Home2 home2 = new Home2();
+                home2.ShowDialog();
             }
-
         }
         private bool IsStudent()
         {
@@ -94,6 +91,25 @@ namespace StudentMgntSystem.Models.Shared
                 conn.Close();
             }
             return result;
+        }
+
+        private void SignUpLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            SignUpHome signUpHome = new SignUpHome();
+            signUpHome.ShowDialog();
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            string message = "Are you sure you want to exit ? ";
+            string title = "Exit";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes )
+            {
+                Application.Exit();
+            }
         }
     }
 }
